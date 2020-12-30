@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Employe = require('../models/Employe');
 const jwt = require('jsonwebtoken');
 
+
 //creating json web token
 const Token = (id) => {
     return jwt.sign({id}, 'cafeteria', {
@@ -10,19 +11,19 @@ const Token = (id) => {
 };
 
 module.exports.signup_get = async(req,res) => {
-    res.render('/signup');
+    res.render('signup');
 }
 module.exports.signup_post = async(req,res) => {
     const {email, password, employe_id,mobile_no,last_name,first_name} = req.body;
     try{
-        const employee = await Employe.create({email, password, employe_id,mobile_no,last_name,first_name});
-        if(employee){
+        const employe = await Employe.create({email, password, employe_id,mobile_no,last_name,first_name});
+        if(employe){
             res.status(201);
             res.json({
-                _id:employee._id,
-                name:employee.name,
-                email:employee.email,
-                token: Token(employee._id)
+                _id:employe._id,
+                name:employe.name,
+                email:employe.email,
+                token: Token(employe._id)
             });
         }
         else{
@@ -36,3 +37,21 @@ module.exports.signup_post = async(req,res) => {
             console.log(err);
         }
 }
+module.exports.login_get=async(req,res)=>{
+    res.render('login');
+}
+module.exports.login_post=async(req,res)=>{
+    const {email, password} = req.body;
+    try{
+      const employe=await Employe.login(email,password);
+      const token=Token(employe._id);
+      res.status(200).json({employe:employe._id});
+    }
+        catch(err){
+            res.status(400)
+            console.log(err);
+        }
+
+}
+
+
