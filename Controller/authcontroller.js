@@ -20,9 +20,10 @@ module.exports.signup_post = async(req,res) => {
             res.status(201);
             res.json({
                 _id:employee._id,
-                name:employee.name,
+                name:employee.first_name,
                 email:employee.email,
-                token: Token(employee._id)
+                token: Token(employee._id),
+                password:employee.password
             });
         }
         else{
