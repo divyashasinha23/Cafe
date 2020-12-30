@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const colors = require('colors');
 const Menu = require('./data/menu');
 const menuRoute = require('./routes/menuRoute');
+const authRoute = require('./routes/authRoute');
 
 
 
@@ -12,6 +13,7 @@ dotenv.config();
 connectDB()
 const app = express();
 app.use(express.json());
+app.use(authRoute);
 
 app.get('/', (req,res) => {
     res.send("Server is running");

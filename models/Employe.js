@@ -21,8 +21,12 @@ const employeeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    password:{
+        type: Number,
+        required: true
+    }
 });
 
-const Employee = mongoose.model('employee', employeeSchema);
+const Employe = mongoose.model('employee', employeeSchema);
 
-module.exports = Employee;
+module.exports = Employe;
