@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const employeeSchema = new mongoose.Schema({
    first_name:{
@@ -22,11 +23,36 @@ const employeeSchema = new mongoose.Schema({
         required: true
     },
     password:{
-        type: Number,
+        type: String,
         required: true
     }
 });
 
-const Employe = mongoose.model('employee', employeeSchema);
 
+
+employeeSchema.pre('save',async function(next){
+    const salt=await bcrypt.genSalt();
+    this.password=await bcrypt.hash(this.password,salt);
+    next();
+});
+
+employeeSchema.statics.login=async function(email,password){
+    const employe=await this.findOne({email});
+    if(employe){
+    const auth=await bcrypt.compare(password,employe.password);
+    if(auth)
+    {
+        return employe;
+    }
+    throw('incorrect password');
+}
+throw Error('incorrect email');
+}
+
+
+
+
+
+
+const Employe = mongoose.model('employe', employeeSchema);
 module.exports = Employe;
