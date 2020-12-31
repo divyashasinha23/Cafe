@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const {isEmail} = require('validator');
 
 const employeeSchema = new mongoose.Schema({
    first_name:{
@@ -12,20 +13,24 @@ const employeeSchema = new mongoose.Schema({
    },
    employe_id:{
        type:String,
-       required:true
+       required:[true, 'Employe ID is Required'],
+       unique:true
     },
     mobile_no:{
         type:Number,
         required:true
+
     },
     email:{
         type: String,
-        required: true
+        required: [true, 'Email is required'],
+        unique:true,
+        validate: [isEmail, 'Please enter a valid email']
     },
     password:{
         type: String,
-        required: true
-    }
+        required: [true, 'Please enter a password'],
+    },
 });
 
 
@@ -48,10 +53,6 @@ employeeSchema.statics.login=async function(email,password){
 }
 throw Error('incorrect email');
 }
-
-
-
-
 
 
 const Employe = mongoose.model('employe', employeeSchema);
