@@ -41,17 +41,16 @@ employeeSchema.pre('save',async function(next){
     next();
 });
 
-employeeSchema.statics.login=async function(email,password){
-    const employe=await this.findOne({email});
-    if(employe){
-    const auth=await bcrypt.compare(password,employe.password);
-    if(auth)
-    {
-        return employe;
+employeeSchema.statics.login = async function(employe_id, password){
+    const employe = await this.findOne({employe_id});
+    if (employe){
+  const auth = await bcrypt.compare(password, employe.password);
+  if(auth){
+      return employe;
+  }
+  throw Error('incorrect password');
     }
-    throw('incorrect password');
-}
-throw Error('incorrect email');
+    throw Error('incorrect Employe ID');
 }
 
 

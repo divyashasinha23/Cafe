@@ -12,11 +12,15 @@ dotenv.config();
 
 connectDB()
 const app = express();
+app.use(express.static('public'));
 app.use(express.json());
 app.use(authRoute);
 
+//view engine
+app.set('view engine', 'ejs');
+
 app.get('/', (req,res) => {
-    res.send("Server is running");
+    res.render('home');
 });
 
 app.use('api/menu',menuRoute);

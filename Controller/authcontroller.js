@@ -12,7 +12,7 @@ const Token = (id) => {
 //error handling
 const handleErrors = (err) => {
     console.log(err.message, err.code);
-    let errors = { email: '', password: '' };
+    let errors = { employe_id: '', password: '' };
   
     if (err.code === 11000) {
         if(err.message.includes("email_1")){
@@ -25,22 +25,24 @@ const handleErrors = (err) => {
         return errors;
     }
   
-    if(err.message === "incorrect email"){
-      errors.email = "That email is not registered";
-      return errors;
+    if(err.message === "incorrect Employe ID"){
+      errors.employe_id = "Employe ID not registered";
+     
     }
   
     if(err.message === "incorrect password"){
       errors.password = "Password is incorrect";
-      return errors;
+      
     }
   
   
-  if (err.message.includes('employe validation failed')) {
+  if (err.message === 'employe validation failed') {
     Object.values(err.errors).forEach(({ properties }) => {
       errors[properties.path] = properties.message;
+      return errors;
     });
   }
+  return errors;
   }
 
 module.exports.signup_get = async(req,res) => {
@@ -74,9 +76,9 @@ module.exports.login_get= async(req,res)=>{
     res.render('login');
 }
 module.exports.login_post=async(req,res)=>{
-    const {email, password} = req.body;
+    const {employe_id, password} = req.body;
     try{
-      const employe=await Employe.login(email,password);
+      const employe=await Employe.login(employe_id,password);
           res.status(201);
           res.json({
             id:employe._id,
