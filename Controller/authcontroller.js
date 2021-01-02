@@ -82,8 +82,6 @@ module.exports.login_post=async(req,res)=>{
           res.status(201);
           res.json({
             id:employe._id,
-            name:employe.name,
-            email:employe.email,
             token: Token(employe._id)
           });
       }
