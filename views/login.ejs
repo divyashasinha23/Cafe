@@ -51,7 +51,7 @@
         employeidError.textContent = data.errors.employe_id;
         passwordError.textContent = data.errors.password;
       }
-      if (data.employe) {
+      else{
         location.assign('/');
       }
     }
