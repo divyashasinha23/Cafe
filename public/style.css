@@ -29,7 +29,7 @@ body{
   font-family: curlz MT;
   color: #FFFDD0;
 }
-button{
+.image2 button{
   color: brown;
   font-size: 20px;
   height:50px;
@@ -107,6 +107,10 @@ button:hover{
   color: #2d2017;
   text-align: center;
 }
+.Food{
+  margin-left: 100px;
+
+}
 .Gallery{
   margin: 5px;
   border: 1px solid #ccc;
@@ -140,7 +144,7 @@ button:hover{
   font-size: 15px;
   border: inset;
   color: white;
-  margin-top: 1500px;
+  margin-top: 1600px;
 }
 .About .Time{
     margin-left: 100px;
@@ -158,8 +162,64 @@ button:hover{
 .About .Info{
   margin-left: 300px;
 }
- /* login */
+/** signup css file**/
+.container1{
+  display: grid;
+}
+.signup
+{
+  font-family: Curlz-MT;
+  text-align: center;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 20px;
+  display: flex;
+  height: 610px;
+  background-color: white;
+  box-shadow: 5px 5px 5px grey;
+  border:  inset;
+}
+.signup-text{
+  text-align: center;
+  margin-left: 50px;
+  margin-top: 10px;
+  font-family: Curlz MT;
+}
+.signup-text img{
+  margin-top: 10px;
+}
+.container
+{
+  display:flex;
+}
+.signup button{
+  height: 30px;
+  width: 55px;
+  background-color: #ae7d5b;
+  color: white;
+  margin-top: 20px;
 
+}
+button a{
+  line:none;
+}
+button:hover{
+  opacity: 0.8;
+}
+ span a{
+  color: brown;
+  line: none;
+  font-size: 20px;
+}
+input{
+  box-shadow: 4px 4px 4px #ae7d5b;
+}
+.image3{
+  margin-left: 850px;
+  margin-top: -460px;
+  box-shadow: 4px 2px 4px white;
+}
+/**Login css file **/
 .login
 {
   font-family: Curlz-MT;
@@ -184,7 +244,7 @@ button:hover{
 {
   display:flex;
 }
-button{
+.login button{
   height: 30px;
   width: 55px;
   background-color: #ae7d5b;
@@ -210,115 +270,4 @@ input{
   margin-left: 850px;
   margin-top: -460px;
   box-shadow: 4px 2px 4px white;
-}
-/* signup */
-
-body{
-  background-color: #bb9175;
-}
-
-.signup
-{
-  font-family: Curlz-MT;
-  text-align: center;
-  margin-left: 200px;
-  margin-right: 200px;
-  margin-top: 20px;
-  display: flex;
-  height: 610px;
-  background-color: white;
-  box-shadow: 5px 5px 5px grey;
-  border:  inset;
-}
-.signup-text{
-  text-align: center;
-  margin-left: -200px;
-  font-family: Curlz MT;
-}
-.signup-text img{
-  margin-top: 10px;
-}
-.container
-{
-  display:flex;
-}
-button{
-  height: 30px;
-  width: 55px;
-  background-color: #ae7d5b;
-  color: white;
-  margin-top: 20px;
-
-}
-button a{
-  line:none;
-}
-button:hover{
-  opacity: 0.8;
-}
- span a{
-  color: brown;
-  line: none;
-  font-size: 20px;
-}
-input{
-  box-shadow: 4px 4px 4px #ae7d5b;
-}
-.image3{
-  margin-left: 850px;
-  margin-top: -460px;
-  box-shadow: 4px 2px 4px white;
-}
-/* Profile section */
-
-body{
-  background-color: #ceb19c;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-  margin: 0;
-}
-
-.profile{
-    display: inline-block;
-    background-color: #fff;
-	  border-radius: 5px;
-	  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	  overflow: hidden;
-	  width: 400px;
-    max-width: 100%;
-    text-align: center; 
-    padding: 25px 25px 25px;
-    margin-left: 410px;
-    margin-top:30px ;
-}
-.image{
-    width: 100px;
-    height: 100px;
-}
-.name{
-    color: #000000;
-    font-size: 20px;
-}
-.Email{
-    color: #000000;
-    font-size: 20px;
-}
-.Employe_id{
-    color: #000000;
-    font-size: 20px;
-}
-.Registration_id{
-    color: #000000;
-    font-size: 20px;
-}
-a{
-  font-size: 15px;
-  color: blue;
-  font: outline;
-}
-h1{
-    text-align: center;
-    margin-top: 30px;
-    padding-top:30px;
 }
