@@ -215,7 +215,6 @@ input{
 
 body{
   background-color: #bb9175;
-
 }
 
 .signup
@@ -269,4 +268,59 @@ input{
   margin-left: 850px;
   margin-top: -460px;
   box-shadow: 4px 2px 4px white;
+}
+/* Profile section */
+
+body{
+  background-color: #ceb19c;
+  font-family: 'Open Sans', sans-serif;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  margin: 0;
+}
+
+.profile{
+    display: inline-block;
+    background-color: #fff;
+	  border-radius: 5px;
+	  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	  overflow: hidden;
+	  width: 400px;
+    max-width: 100%;
+    text-align: center; 
+    padding: 25px 25px 25px;
+    margin-left: 410px;
+    margin-top:30px ;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.name{
+    color: #000000;
+    font-size: 20px;
+}
+.Email{
+    color: #000000;
+    font-size: 20px;
+}
+.Employe_id{
+    color: #000000;
+    font-size: 20px;
+}
+.Registration_id{
+    color: #000000;
+    font-size: 20px;
+}
+a{
+  font-size: 15px;
+  color: blue;
+  font: outline;
+}
+h1{
+    text-align: center;
+    margin-top: 30px;
+    padding-top:30px;
+
 }
