@@ -81,9 +81,10 @@ module.exports.login_post=async(req,res)=>{
       const employe=await Employe.login(employe_id,password);
           res.status(201);
           res.json({
-            id:employe._id,
-            token: Token(employe._id)
+            employe_id: employe.employe_id,
+            password:employe.password
           });
+         return employe; 
       }
         catch(err){
             const errors = handleErrors(err);
