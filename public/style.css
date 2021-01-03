@@ -273,7 +273,6 @@ input{
 
 body{
   background-color: #ceb19c;
-  font-family: 'Open Sans', sans-serif;
   align-items: center;
   justify-content: center;
   min-height: 80vh;
@@ -293,7 +292,7 @@ body{
     margin-left: 410px;
     margin-top:30px ;
 }
-img{
+.image{
     width: 100px;
     height: 100px;
 }
@@ -322,5 +321,4 @@ h1{
     text-align: center;
     margin-top: 30px;
     padding-top:30px;
-
 }
