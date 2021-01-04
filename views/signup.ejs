@@ -1,5 +1,5 @@
 <%- include('partials/header'); -%>
-<form class="signup_page" action="/signup" method="post">
+<form class="signup_page" action="/signup">
   <div>
   <div class="signup container">
   <div  class="signup-text" style="padding-left:200px;">
@@ -9,12 +9,18 @@
   <div class="container">
   <img src="images/usernamelogo.jpg" alt="usernamelogo" height="30px" width="25px" style="margin-top:-2px">
   <div class="container1">
-    <input type="text" name=" first_name" placeholder="First Name" required style="font-size:18px"></input>
+<label for="first_name"></label>   
+<input type="text" name=" first_name" placeholder="First Name" required style="font-size:18px"></input>
+<label for="last_name"></label>
 <input type="text" name="last_name" placeholder="Last Name" required style="font-size:18px;margin-top:10px"></input>
 <label for="email"></label>
 <input type="text" name="email" placeholder="E-mail" required style="font-size:18px;margin-top:10px"></input>
+<div class="email error"></div>
 <!-- <input type="text" name="Organization-name" placeholder="Organization Name" required style="font-size:18px;margin-top:10px"></input> -->
+<label for="employe_id"></label>
 <input type="text" name="employe_id" placeholder="Employee ID no." required style="font-size:18px;margin-top:10px"></input>
+<div class="employe_id error"></div>
+<label for="mobile_no"></label>
 <input type="number" name="mobile_no" placeholder="Mobile Number" required style="font-size:18px;margin-top:10px"></input>
 <label for="images/download.png"></label>
 <!-- <input type="file" name="ID" placeholder="ID" required style="font-size:20px; margin-top:19px;"></input> -->
@@ -22,17 +28,11 @@
   </div>
   <div>
   <img src="images/download.png" alt="password" height="30px" width="25px">
-  <input type="password" name="Password" placeholder="Enter your password" required style="font-size:18px"></input>
+  <label for="password"></label>
+  <input type="password" name="password" placeholder="Enter your password" required style="font-size:18px"></input>
+  <div class="password error"></div>
   </div>
-  <button type="submit" name="button" style="font-size:15px; height:40px; width: 60px; border-radius:20%;" onclick="Onwin()">
-    <a>
-    Sign up
-    </a>
-  </button>
-  <h4>
-  <input type="checkbox">Remember me
-  </h4>
-
+  <button type="submit" style="font-size:15px; height:40px; width: 60px; border-radius:20%;"> Sign up</button>
   </div>
   </div>
 
@@ -41,7 +41,7 @@
 <script>
     const form = document.querySelector('form');
     const employeidError = document.querySelector('.employe_id.error');
-    const emailError = document.querySelector('.employe_id.error');
+    const emailError = document.querySelector('.email.error');
     const passwordError = document.querySelector('.password.error');
     form.addEventListener('submit', async (e) => {
       e.preventDefault();

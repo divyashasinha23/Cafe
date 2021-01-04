@@ -52,14 +52,19 @@ module.exports.signup_post = async(req,res) => {
     const {email, password, employe_id,mobile_no,last_name,first_name} = req.body;
     try{
         const employe = await Employe.create({email, password, employe_id,mobile_no,last_name,first_name});
+        const  token = Token(employe._id);
+        res.cookie('jwt', token, { httpOnly: true });
         if(employe){
             res.status(201);
             res.json({
                 _id:employe._id,
-                name:employe.name,
+                first_name:employe.first_name,
+                last_name: employe.last_name,
+                mobile_no:employe.mobile_no,
+                password:employe,password,
+                employe_id: employe.employe_id,
                 email:employe.email,
-                token: Token(employe._id)
-            });
+            });  
         }
         else{
             res.status(400);
@@ -79,17 +84,36 @@ module.exports.login_post=async(req,res)=>{
     const {employe_id, password} = req.body;
     try{
       const employe=await Employe.login(employe_id,password);
-          res.status(201);
-          res.json({
-            employe_id: employe.employe_id,
-            password:employe.password
-          });
-         return employe; 
+      const token = Token(employe._id);
+      res.cookie('jwt', token, { httpOnly: true});
+       res.status(201).json({
+         _id : employe._id,
+         password: employe.password,
+         employe_id: employe.employe_id
+       });  
       }
         catch(err){
             const errors = handleErrors(err);
             res.status(400).json({errors});
         }
 }
-
+module.exports.getEmploye = async(req,res) => {
+  try{
+  const employe = await Employe.findById(req.user._id);
+  if (employe) {
+    res.json({
+      _id: employe._id,
+      name: employe.first_name,
+      email: employe.email,
+      employe_id: employe.employe_id,
+    });
+  } else {
+    res.status(404);
+    throw new Error('user not found');
+  }
+}
+catch(err){
+ console.log(err);
+}
+};
 

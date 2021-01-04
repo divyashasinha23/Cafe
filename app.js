@@ -6,6 +6,7 @@ const Menu = require('./data/menu');
 const menuRoute = require('./routes/menuRoute');
 const authRoute = require('./routes/authRoute');
 const cookieParser =require('cookie-parser');
+const {requireAuth, currentUser} = require('./Middleware/authmiddleware');
 
 
 
@@ -15,7 +16,7 @@ connectDB()
 const app = express();
 app.use(express.static('public'));
 app.use(express.json());
-app.use(authRoute);
+
 app.use(cookieParser());
 
 //view engine
@@ -24,6 +25,11 @@ app.set('view engine', 'ejs');
 app.get('/', (req,res) => {
     res.render('home');
 });
+// app.get('*', currentUser);
+// app.get('/profile', requireAuth, (req,res) => {
+//     res.render('profile');
+// });
+app.use(authRoute);
 
 app.use('api/menu',menuRoute);
 
