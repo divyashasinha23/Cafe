@@ -3,9 +3,10 @@
 <h1> Registration Successfully</h1>
 <div class = "profile">
     <img class="image" src="images/my image.jpg" alt=""/>
-    <h2 class= "name">Divyasha sinha</h2>
-    <p class=" Email">Email id:diyashasinha23@gmail.com</p>
-    <p class= "Employe_id">Employe ID: 23 </p>
-    <p class = "Registration_id">Registration ID:5462638jnjcnjhk</p>
+    <h2 class= "name"><%= employe.first_name %></h2>
+    <p class=" Email">Email: <%= employe.email %></p>
+    <p class= "Employe_id">Employe ID: <%= employe.employe_id %> </p>
+    <p class = "Registration_id">Registration ID: <%= employe._id %></p>
+    <p class = "Mobile_no">Mobile Number: <%= employe.mobile_no %></p>
     <p class = "Menu"><a href="#">Back to menu</a></p>
 </div>
