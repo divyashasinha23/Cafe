@@ -1,6 +1,6 @@
 <%- include('partials/header'); -%>
 <form class="signup_page" action="/signup">
-  <div>
+
   <div class="signup container">
   <div  class="signup-text" style="padding-left:200px;">
       <img src="images/White_and_Brown_Cafe_Logo-removebg-preview (1) (1).png" alt="signup_image" width="70px" height="70px">
@@ -9,35 +9,42 @@
   <div class="container">
   <img src="images/usernamelogo.jpg" alt="usernamelogo" height="30px" width="25px" style="margin-top:-2px">
   <div class="container1">
-<label for="first_name"></label>   
-<input type="text" name=" first_name" placeholder="First Name" required style="font-size:18px"></input>
-<label for="last_name"></label>
-<input type="text" name="last_name" placeholder="Last Name" required style="font-size:18px;margin-top:10px"></input>
-<label for="email"></label>
-<input type="text" name="email" placeholder="E-mail" required style="font-size:18px;margin-top:10px"></input>
-<div class="email error"></div>
-<!-- <input type="text" name="Organization-name" placeholder="Organization Name" required style="font-size:18px;margin-top:10px"></input> -->
-<label for="employe_id"></label>
-<input type="text" name="employe_id" placeholder="Employee ID no." required style="font-size:18px;margin-top:10px"></input>
-<div class="employe_id error"></div>
-<label for="mobile_no"></label>
-<input type="number" name="mobile_no" placeholder="Mobile Number" required style="font-size:18px;margin-top:10px"></input>
-<label for="images/download.png"></label>
-<!-- <input type="file" name="ID" placeholder="ID" required style="font-size:20px; margin-top:19px;"></input> -->
-  </div>
-  </div>
-  <div>
-  <img src="images/download.png" alt="password" height="30px" width="25px">
-  <label for="password"></label>
-  <input type="password" name="password" placeholder="Enter your password" required style="font-size:18px"></input>
-  <div class="password error"></div>
-  </div>
-  <button type="submit" style="font-size:15px; height:40px; width: 60px; border-radius:20%;"> Sign up</button>
-  </div>
-  </div>
 
+<div class = "signup_details">
+      <label for="first_name"></label>   
+      <input type="text" name= "first_name" placeholder="First Name" required style="font-size:18px"></input>
 </div>
+<div class = "signup_details">
+  <label for="last_name"></label>   
+  <input type="text" name= "last_name" placeholder="Last Name" required style="font-size:18px"></input>
+</div>
+<div class = "signup_details">
+  <label for="mobile_no"></label>   
+  <input type="number" name= "mobile_no" placeholder="Mobile no." required style="font-size:18px"></input>
+</div>
+<div class = "signup_details">
+  <label for="employe_id"></label>   
+  <input type="text" name= "employe_id" placeholder="employe_id" required style="font-size:18px"></input>
+</div>
+<div class="employe_id error"></div>
+<div class = "signup_details">
+  <label for="email"></label>   
+  <input type="text" name= "email" placeholder="Email" required style="font-size:18px"></input>
+</div>
+<div class="email error"></div>
+<div class = "signup_details">
+  <label for="password"></label>   
+  <input type="password" name= "password" placeholder="password" required style="font-size:18px"></input>
+</div>
+<div class="password error"></div>
+  </div>
+  </div>
+  <button class = "submit" type="submit"> Sign up</button>
+  </div>
+  </div>
 </form>
+
+
 <script>
     const form = document.querySelector('form');
     const employeidError = document.querySelector('.employe_id.error');
@@ -50,22 +57,23 @@
       emailError.textContent='';
       passwordError.textContent = '';
       // get values
-      const first_name=form.first_name.value;
-      const last_name=form.last_name.value;
-      const mobile_no=form.mobile_no.value;
+      const first_name = form.first_name.value;
+      const last_name = form.last_name.value;
+      const mobile_no = form.mobile_no.value;
       const employe_id = form.employe_id.value;
       const password = form.password.value;
+      const email = form.email.value;
       try {
         const res = await fetch('/signup', { 
           method: 'POST', 
-          body: JSON.stringify({ first_name,last_name,mobile_no,employe_id, password }),
+          body: JSON.stringify({ first_name,last_name,mobile_no,employe_id, password, email }),
           headers: {'Content-Type': 'application/json'}
         });
         const data = await res.json();
         console.log(data);
         if (data.errors) {
           employeidError.textContent = data.errors.employe_id;
-          emailError.textContent=data.errors.email;
+          emailError.textContent= data.errors.email;
           passwordError.textContent = data.errors.password;
         }
           else{

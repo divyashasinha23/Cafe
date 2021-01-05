@@ -198,11 +198,13 @@ button:hover{
   display:flex;
 }
 .signup button{
-  height: 30px;
-  width: 55px;
   background-color: #ae7d5b;
   color: white;
   margin-top: 20px;
+  font-size:15px; 
+  height:40px; 
+  width: 60px; 
+  border-radius:20%;
 
 }
 button a{
@@ -224,6 +226,7 @@ input{
   margin-top: -460px;
   box-shadow: 4px 2px 4px white;
 }
+
 /**Login css file **/
 .login
 {

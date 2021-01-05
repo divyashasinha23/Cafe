@@ -97,23 +97,6 @@ module.exports.login_post=async(req,res)=>{
             res.status(400).json({errors});
         }
 }
-module.exports.getEmploye = async(req,res) => {
-  try{
-  const employe = await Employe.findById(req.user._id);
-  if (employe) {
-    res.json({
-      _id: employe._id,
-      name: employe.first_name,
-      email: employe.email,
-      employe_id: employe.employe_id,
-    });
-  } else {
-    res.status(404);
-    throw new Error('user not found');
-  }
-}
-catch(err){
- console.log(err);
-}
-};
+
+
 
