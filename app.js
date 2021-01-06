@@ -7,6 +7,8 @@ const Menu = require('./data/menu');
 const menuRoute = require('./routes/menuRoute');
 const authRoute = require('./routes/authRoute');
 const cookieParser =require('cookie-parser');
+const {requireAuth, currentUser} = require('./Middleware/authmiddleware');
+const { checkout } = require("./routes/authRoute");
 
 
 
@@ -24,9 +26,16 @@ app.use(cookieParser());
 //view engine
 app.set('view engine', 'ejs');
 
+app.get('*', currentUser);
 app.get('/', (req,res) => {
     res.render('home');
 });
+app.get('/profile', requireAuth, (req,res) => {
+    res.render('profile');
+})
+app.get('/orderconfirm', requireAuth, (req,res) =>{
+    res.render('home');
+})
 // app.get('*', currentUser);
 // app.get('/profile', requireAuth, (req,res) => {
 //     res.render('profile');

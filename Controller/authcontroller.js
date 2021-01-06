@@ -4,9 +4,10 @@ const jwt = require('jsonwebtoken');
 
 
 //creating json web token
+const maxAge = 20 * 24 * 60 * 60;
 const Token = (id) => {
     return jwt.sign({id}, 'cafeteria', {
-    expiresIn: '30d',
+    expiresIn: maxAge,
     });
 };
 //error handling
@@ -53,7 +54,7 @@ module.exports.signup_post = async(req,res) => {
     try{
         const employe = await Employe.create({email, password, employe_id,mobile_no,last_name,first_name});
         const  token = Token(employe._id);
-        res.cookie('jwt', token, { httpOnly: true });
+        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
         if(employe){
             res.status(201);
             res.json({
@@ -83,9 +84,9 @@ module.exports.login_get= async(req,res)=>{
 module.exports.login_post=async(req,res)=>{
     const {employe_id, password} = req.body;
     try{
-      const employe=await Employe.login(employe_id,password);
+      const employe = await Employe.login(employe_id,password);
       const token = Token(employe._id);
-      res.cookie('jwt', token, { httpOnly: true});
+      res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000});
        res.status(201).json({
          _id : employe._id,
          password: employe.password,
@@ -97,6 +98,11 @@ module.exports.login_post=async(req,res)=>{
             res.status(400).json({errors});
         }
 }
+module.exports.logout_get = (req,res) => {
+  res.cookie('jwt', '', {maxAge: 1});
+  res.redirect('/');
+}
+
 
 
 
