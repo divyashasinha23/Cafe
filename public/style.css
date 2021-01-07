@@ -794,7 +794,7 @@ input[type=text],input[type=password],input[type=number]{
   outline: none;
   border-color: #dfe0df;
    border-bottom: 2px dotted #000000; 
-  color: #dddddd;
+  color: #000000;
   margin: 5px;
   font-weight: bold;
   border-style: solid;
