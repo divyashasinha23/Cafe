@@ -3,31 +3,28 @@
   <head>
     <meta charset="UTF-8">
     <title>Cafeteria</title>
-    <link rel="icon" href="White_and_Brown_Cafe_Logo-removebg-preview (1) (1).png" height=500px>
+    <link rel="icon" href="White_and_Brown_Cafe_Logo-removebg-preview (1) (1).png">
     <link rel="stylesheet" href="style.css">
 
   </head>
   <body >
-     <div class="first">
-       <div class="container">
-       <img  class ="header_image" src="images/White_and_Brown_Cafe_Logo-removebg-preview (1) (1).png" alt="logo">
-       <h1>Cafeteria</h1>
+    <nav>
+      <div class="first1 clearfix">
+        <img src="images/White_and_Brown_Cafe_Logo-removebg-preview (1) (1).png" class="logo">
+       <h4 class="logo_header">Cafeteria</h4>
+       <ul class="Navbar1">
        <% if(employe) { %>
-        <h1>Welcome <%= employe.first_name %></h1>
-        <a href = "/logout">Log Out</a>
-      <% }  else {%>   
-       <div class="Navbar container" >
-         <div class="Navbar1">     
-       <a href="/">Home</a>
-       <a href="/">Menu</a>
-       <a href="/login">login</a>
-       <a href="/signup">Sign up</a>
-       <a href="#">My Cart</a>
-       <a href="#About-us"> About</a>
-     </div>
-    </div>
-   
-     </div>
-    </div>
+         <h1>Welcome <%= employe.first_name %></h1>
+         <li><a href = "/logout">Log Out</a></li>
+       <% }  else {%>   
+            <li><a href="/" class= "active"> Home</a></li>
+            <li><a href="/"> Menu</a></li>
+            <li><a href="/login"> Log in</a></li>
+            <li><a href="/signup"> Sign Up</a></li>
+            <li><a href="#About-us"> About Us</a></li>
+        </ul>
+        <% } %>
+      </div>  
+     </nav>
     
 
