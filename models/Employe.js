@@ -3,11 +3,11 @@ const bcrypt = require('bcrypt');
 const {isEmail} = require('validator');
 
 const employeeSchema = new mongoose.Schema({
-   first_name:{
+   full_name:{
        type:String,
        required:true
    },
-   last_name:{
+   organisation_name:{
        type:String,
        required:true
    },
@@ -31,7 +31,13 @@ const employeeSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please enter a password'],
     },
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    }
 });
+
 
 
 

@@ -50,17 +50,17 @@ module.exports.signup_get = async(req,res) => {
     res.render('signup');
 }
 module.exports.signup_post = async(req,res) => {
-    const {email, password, employe_id,mobile_no,last_name,first_name} = req.body;
+    const {email, password, employe_id,mobile_no,full_name,organisation_name} = req.body;
     try{
-        const employe = await Employe.create({email, password, employe_id,mobile_no,last_name,first_name});
+        const employe = await Employe.create({email, password, employe_id,mobile_no,full_name,organisation_name});
         const  token = Token(employe._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
         if(employe){
             res.status(201);
             res.json({
                 _id:employe._id,
-                first_name:employe.first_name,
-                last_name: employe.last_name,
+                first_name:employe.full_name,
+                last_name: employe.organisation_name,
                 mobile_no:employe.mobile_no,
                 password:employe,password,
                 employe_id: employe.employe_id,

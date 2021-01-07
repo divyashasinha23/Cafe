@@ -1,4 +1,4 @@
-body{
+/* body{
   background-color: #ceb19c;
   align-items: center;
   justify-content: center;
@@ -434,7 +434,7 @@ button:hover{
   width: 1200px;
 } */
 /** signup css file**/
-.container1{
+/* .container1{
   display: grid;
 }
 .signup
@@ -489,7 +489,320 @@ input{
   margin-left: 850px;
   margin-top: -460px;
   box-shadow: 4px 2px 4px white;
+} */
+/* .wrap{
+  max-width: 500px;
+  border-radius: 20px;
+  margin:auto;
+  background:rgba(0,0,0,0.8);
+  box-sizing: border-box;
+  padding:40px;
+  color: #fff;
+  margin-top: 100px;
 }
+.signup_head{
+  text-align: center;
+}
+input[type=text],input[type=password],input[type=number]{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 5px;
+  background: rgba(0,0,0,0.10);
+  outline: none;
+  border: none;
+  border-bottom: 1px dotted #fff;
+  color: #fff;
+  margin: 5px;
+  font-weight: bold;
+}
+.signup_btn{
+  display: block;
+  color: #bf55ec;
+  text-align: center;
+  background-color:#ffffff;
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 10px 5px;
+  border-radius: 200px;
+  border-color:#bf55ec ;
+  size: 2px;
+  text-transform: uppercase;
+  font-size: 20px;
+} */ 
+body{
+  font-size: 20px;
+  overflow-x: hidden;
+  
+}
+*{
+  margin:0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+header{
+    background:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url("images/WhatsApp Image 2020-12-28 at 14.54.31.jpeg");  
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.clearfix:after{
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0px;
+  clear:both;
+}
+.first{
+  max-width: 1180px;
+}
+.logo{
+  height: 90px;
+  width: auto;
+  float: left;
+  padding-top: 5px;
+  padding-left: 20px;
+}
+.logo_head{
+  position: absolute;
+  padding-top:90px;
+  padding-left: 10px;
+  color: #bf55ec;
+}
+
+.Navbar{
+  float: right;
+  margin-top: 30px;
+}
+.Navbar li{
+  display:  inline-block;
+  list-style: none;
+  margin-left: 30px;
+}
+.Navbar li a{
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 110%;
+  font-weight: 100;
+ 
+}
+.Navbar li a:hover{
+  border-bottom: 2px solid #bf55ec;
+
+}
+.Home{
+  width: 1180px;
+  position: absolute;
+  top: 40%;
+  left:60%;
+}
+.changecolor{
+  animation: colorchangecafeteria 1s infinite;
+}
+@keyframes colorchangecafeteria{
+  0%{color:red;}
+  25%{color:#ffc764;}
+  50%{color: white;}
+  100%{color: #ff577f;}
+}
+.changecolor1{
+  animation: colorchangecafeteria1 1s infinite;
+}
+@keyframes colorchangecafeteria1{
+  0%{color:red;}
+  25%{color:#ffc764;}
+  50%{color: white;}
+  100%{color: #ff577f;}
+}
+h1{
+  color:#fff;
+  font-size: 240%;
+  word-spacing: 5px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+.btn{
+ display: inline-block;
+ padding: 10px 30px;
+ font-weight: lighter;
+ text-decoration:none ;
+ text-transform: uppercase;
+ border-radius: 200px;
+ transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+.btn-full{
+  background-color: transparent;
+  color: #bf55ec;
+  border: 1px solid #bf55ec;
+}
+.btn-full:hover{
+  background-color: #ffffff;
+}
+
+/* Menu */
+.Menu{
+  width:90%;
+  margin:50px auto;
+}
+.food{
+  text-align:center;
+  font-size:30px;
+  margin-bottom: 50px;
+}
+.menu_head{
+  color:#000000;
+  text-align: center;
+}
+.Gallery{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+.column{
+  width:20%;
+  background: #fff;
+  border:1px solid #ccc;
+  margin-bottom: 20px;
+  transition: 0.3s; 
+  border-radius: 5%;
+}
+.column img{
+  height:250px;
+  width: 100%;
+  border-radius: 5%;
+}
+.menu_content{
+  padding: 20px 15px;
+  text-align: center;
+  font-size: 18px;
+}
+.menu_btn{
+  display: block;
+  color: #fff;
+  text-align: center;
+  background-color:#ceb19c;
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 10px 5px;
+  border-radius: 200px;
+  size: 2px;
+}
+.meal_btn{
+  display: block;
+  color: #fff;
+  text-align: center;
+  background-color:#ceb19c;
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 10px 5px;
+  border-radius: 200px;
+  size: 2px;
+}
+.column:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 40px -10px rgba(0,0,0,0.25);
+}
+
+/* Footer section */
+
+footer{
+ bottom: 0px;
+ background-color: #2d2017;
+ width:100%;
+ 
+}
+
+.main-content{
+  display: flex;
+}
+.main-content .box{
+  flex-basis: 50%;
+  padding-left: 80px;
+}
+.box h2{
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.box .content{
+  margin: 20px 0 0 0;
+}
+.left .content p{
+  text-align: justify;
+  color:#fff;
+}
+.center img{
+  height: 90%;
+  width: 90%;
+  margin-top: 10px;
+}
+.right .content p {
+  color: #fff;
+}
+
+.main-content .boxs{
+  flex-basis: 50%;
+  padding-left: 300px;
+  padding-top: 10px;
+}
+.boxs h2{
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.left{
+  padding-top:10px;
+}
+
+/* Signup */
+
+.wrap{
+  max-width: 500px;
+  border-radius: 20px;
+  margin:auto;
+  background:rgba(0,0,0,0.8);
+  box-sizing: border-box;
+  padding:40px;
+  color: #fff;
+  margin-top: 100px;
+}
+h2{
+  text-align: center;
+}
+input[type=text],input[type=password],input[type=number]{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 5px;
+  background: rgba(0,0,0,0.10);
+  outline: none;
+  border: none;
+  border-bottom: 1px dotted #fff;
+  color: #fff;
+  margin: 5px;
+  font-weight: bold;
+}
+.signup_btn{
+  display: block;
+  color: #bf55ec;
+  text-align: center;
+  background-color:#ffffff;
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 10px 5px;
+  border-radius: 200px;
+  border-color:#bf55ec ;
+  size: 2px;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
 /**Login css file **/
 .login
 {
@@ -535,7 +848,7 @@ button:hover{
   font-size: 20px;
 }
 input{
-  box-shadow: 4px 4px 4px #ae7d5b;
+  box-shadow: rgba(0,0,0,0.7);
 }
 .image3{
   margin-left: 850px;

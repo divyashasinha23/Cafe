@@ -1,201 +1,221 @@
-<%- include('partials/header'); -%>
+<%- include('partials/head'); -%>
 
-<!-- Info section -->
-<div class="image2 container" id="Home">
-  <img class="background-img" src="images/WhatsApp Image 2020-12-28 at 14.54.31.jpeg" alt="background-img">
-  <div class="text">
-  <h1> Feeling Tired? </h1>
-  <h2 class="text2"> Have some Coffee </h2>
-  <a href="#Menu">
-  <button type="button" name="button">Menu</button></a>
-</div>
-</div>
+<!-- landing page -->
+<header>
+  <nav>
+   <div class="first clearfix">
+     <img src="images/White_and_Brown_Cafe_Logo-removebg-preview (1) (1).png" class="logo">
+    <h4 class="logo_head">Cafeteria</h4>
+    <% if(employe) { %>
+      <h1>Welcome <%= employe.first_name %></h1>
+      <li><a href = "/logout">Log Out</a></li>
+    <% }  else {%>   
+     <ul class="Navbar">
+         <li><a href="/" class= "active"> Home</a></li>
+         <li><a href="/logout"> Logout</a></li>
+         <li><a href="/login"> Log in</a></li>
+         <li><a href="/signup"> Sign Up</a></li>
+         <li><a href="#About-us"> About Us</a></li>
+     </ul>
+     <% } %>
+   </div>  
+  </nav>
+  <div class= "Home">
+  <h1 class="changecolor">FEELING TIRED?</h1>
+  <h1 class="changecolor1">HAVE A COFFEE</h1>
+  <a href="/" class= "btn btn-full"> Order Now</a>
+ </div>
+ </header>
 
-<!-- Menu section -->
 
-<div class="Menu1" id="Menu">
-<h1>Menu</h1>
+
+        <!-- Menu -->
+<div class="Menu">
+
 <div class="Food">
-<div class="Gallery">
-<a href = "/orderConfirm"><img src="images/IMG-20201229-WA0039.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Cheese Sandwich</h1>
- <h1>Rs. 80</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
+ <h1 class="menu_head">Beverages</h1>
 </div>
+
+<div class= "Gallery">
+
+ <div class="column">
+    <a href="/orderconfirm"><img src="images/IMG-20201229-WA0035.jpg"></a> 
+   <div class ="menu_content">
+     <h3>Americano</h3>
+     <h3>150 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"> <img src="images/IMG-20201229-WA0024.jpg">
+   <div class ="menu_content">
+     <h3>Latte</h3>
+     <h3>40 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0040.jpg">
+   <div class ="menu_content">
+     <h3>Cappuccino</h3>
+     <h3>70 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"> <img src="images/IMG-20201229-WA0031.jpg">
+   <div class ="menu_content">
+     <h3>Macchiato</h3>
+     <h3>80 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0041.jpg">
+   <div class ="menu_content">
+     <h3>Cafe Mocha</h3>
+     <h3>60 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+
 </div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0038.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Frappe</h1>
- <h1>Rs. 100</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
+
 </div>
+
+<!-- snacks section -->
+<div class="Menu">
+
+<div class="Food">
+ <h1 class="menu_head">Snacks</h1>
 </div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0037.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Dosa</h1>
- <h1>Rs. 70</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
+
+<div class= "Gallery">
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0035.jpg">
+   <div class ="menu_content">
+     <h3>Americano</h3>
+     <h3>150 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0024.jpg">
+   <div class ="menu_content">
+     <h3>Latte</h3>
+     <h3>40 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0040.jpg">
+   <div class ="menu_content">
+     <h3>Cappuccino</h3>
+     <h3>70 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0031.jpg">
+   <div class ="menu_content">
+     <h3>Macchiato</h3>
+     <h3>80 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0041.jpg">
+   <div class ="menu_content">
+     <h3>Cafe Mocha</h3>
+     <h3>60 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+
 </div>
+
 </div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0035.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Americano</h1>
- <h1>Rs. 150</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
+
+<!-- Dessert and ice creams -->
+
+<div class="Menu">
+
+<div class="Food">
+ <h1 class="menu_head">Dessert and Ice-Creams</h1>
 </div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0033.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Paneer Sandwich</h1>
- <h1>Rs. 70</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0025.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Veg Burger</h1>
- <h1>Rs. 50</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0027.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Mawa Cake</h1>
- <h1>Rs. 80</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0028.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Spring Roll</h1>
- <h1>Rs. 45</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0024.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Latte</h1>
- <h1>Rs. 40</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0029.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Paneer Cutlet</h1>
- <h1>Rs. 50</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0030.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Mirchi Bajji</h1>
- <h1>Rs. 40</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0031.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Macchiato</h1>
- <h1>Rs. 80</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0040.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Cappuccino</h1>
- <h1>Rs. 70</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0041.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Cafe Mocha</h1>
- <h1>Rs. 60</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0042.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Kaju Vadi</h1>
- <h1>Rs. 45</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/IMG-20201229-WA0043.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Aloo Bonda</h1>
- <h1>Rs. 30</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/momo.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Momos</h1>
- <h1>Rs. 45</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
-<div class="Gallery">
-  <a href = "/orderConfirm"><img src="images/Samosa.jpg" alt="Latte"></a>
-<div class="desc">
- <h1>Samosa</h1>
- <h1>Rs. 30</h1>
- <a href="#">
-   <img src="images/cart.png" alt="cart-icon">
- </a>
-</div>
-</div>
+
+<div class= "Gallery">
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0035.jpg">
+   <div class ="menu_content">
+     <h3>Americano</h3>
+     <h3>150 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0024.jpg">
+   <div class ="menu_content">
+     <h3>Latte</h3>
+     <h3>40 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0040.jpg">
+   <div class ="menu_content">
+     <h3>Cappuccino</h3>
+     <h3>70 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0031.jpg">
+   <div class ="menu_content">
+     <h3>Macchiato</h3>
+     <h3>80 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
+
+ <div class="column">
+  <a href="/ordreconfirm"><img src="images/IMG-20201229-WA0041.jpg">
+   <div class ="menu_content">
+     <h3>Cafe Mocha</h3>
+     <h3>60 Rs.</h3>
+     <a href="#" class="menu_btn">Order</a>
+     <a href="#" class="meal_btn">Add to Meal</a>
+   </div>
+ </div>
 </div>
 </div>
 
