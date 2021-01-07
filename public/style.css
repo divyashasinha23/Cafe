@@ -434,7 +434,7 @@ button:hover{
   width: 1200px;
 } */
 /** signup css file**/
-.container1{
+/* .container1{
   display: grid;
 }
 .signup
@@ -489,6 +489,45 @@ input{
   margin-left: 850px;
   margin-top: -460px;
   box-shadow: 4px 2px 4px white;
+} */
+.wrap{
+  max-width: 500px;
+  border-radius: 20px;
+  margin:auto;
+  background:rgba(0,0,0,0.8);
+  box-sizing: border-box;
+  padding:40px;
+  color: #fff;
+  margin-top: 100px;
+}
+.signup_head{
+  text-align: center;
+}
+input[type=text],input[type=password],input[type=number]{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 5px;
+  background: rgba(0,0,0,0.10);
+  outline: none;
+  border: none;
+  border-bottom: 1px dotted #fff;
+  color: #fff;
+  margin: 5px;
+  font-weight: bold;
+}
+.signup_btn{
+  display: block;
+  color: #bf55ec;
+  text-align: center;
+  background-color:#ffffff;
+  margin-top: 10px;
+  text-decoration: none;
+  padding: 10px 5px;
+  border-radius: 200px;
+  border-color:#bf55ec ;
+  size: 2px;
+  text-transform: uppercase;
+  font-size: 20px;
 }
 /**Login css file **/
 .login
@@ -535,7 +574,7 @@ button:hover{
   font-size: 20px;
 }
 input{
-  box-shadow: 4px 4px 4px #ae7d5b;
+  box-shadow: rgba(0,0,0,0.7);
 }
 .image3{
   margin-left: 850px;

@@ -36,10 +36,7 @@ app.get('/profile', requireAuth, (req,res) => {
 app.get('/orderconfirm', requireAuth, (req,res) =>{
     res.render('home');
 })
-// app.get('*', currentUser);
-// app.get('/profile', requireAuth, (req,res) => {
-//     res.render('profile');
-// });
+
 app.use(authRoute);
 
 app.use('api/menu',menuRoute);

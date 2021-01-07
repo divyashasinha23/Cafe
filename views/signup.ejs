@@ -1,5 +1,5 @@
 <%- include('partials/header'); -%>
-<form class="signup_page" action="/signup">
+<!-- <form class="signup_page" action="/signup">
 
   <div class="signup container">
   <div  class="signup-text" style="padding-left:200px;">
@@ -42,7 +42,32 @@
   <button class = "submit" type="submit"> Sign up</button>
   </div>
   </div>
-</form>
+</form> -->
+<div class= "signup_container">
+  <div class="wrap">
+    <h2 class="signup_head">Sign up here</h2>
+    <form>
+      <label for="first_name"></label> 
+      <input type="text" name= "first_name" placeholder="First Name">
+      <label for="last_name"></label> 
+      <input type="text" name= "last_name" placeholder="Last Name">
+      <label for="employe_id"></label> 
+      <input type="number" name= "employe_id" placeholder="Employe ID">
+      <div class="employe_id error"></div>
+      <label for="email"></label> 
+      <input type="text" name= "email" placeholder="email">
+      <div class="email error"></div>
+      <label for="password"></label> 
+      <input type="password" name= "password" placeholder="Password">
+      <div class="password error"></div>
+      <label for="mobile_no"></label> 
+      <input type="number" name= "mobile_no" placeholder="Mobile no.">
+      <label for="first_name"></label> 
+      <b class="signup_btn" type="submit">sign up</a>
+      
+    </form>
+  </div>
+  </div>
 
 
 <script>
