@@ -532,12 +532,12 @@ input[type=text],input[type=password],input[type=number]{
 body{
   font-size: 20px;
   overflow-x: hidden;
-  
 }
 *{
   margin:0px;
   padding: 0px;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 header{
@@ -568,7 +568,7 @@ header{
   position: absolute;
   padding-top:90px;
   padding-left: 10px;
-  color: #bf55ec;
+  color: #ffffff;
 }
 
 .Navbar{
@@ -762,32 +762,46 @@ footer{
 }
 
 /* Signup */
-
+/* ceb19c */
 .wrap{
   max-width: 500px;
   border-radius: 20px;
   margin:auto;
-  background:rgba(0,0,0,0.8);
+  background:#e1d89f;
   box-sizing: border-box;
   padding:40px;
   color: #fff;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 h2{
   text-align: center;
+}
+.signup_head{
+  text-align: center;
+  color: #000000;
 }
 input[type=text],input[type=password],input[type=number]{
   width: 100%;
   box-sizing: border-box;
   padding: 12px 5px;
-  background: rgba(0,0,0,0.10);
+  background: #fff;
   outline: none;
-  border: none;
-  border-bottom: 1px dotted #fff;
-  color: #fff;
+  border-color: #dfe0df;
+   border-bottom: 1px dotted #000000; 
+  color: #dddddd;
   margin: 5px;
   font-weight: bold;
+  border-style: solid;
 }
+input[type=number]:hover{
+  border-color: #bf55ec;
+}
+input[type=text]:hover{
+  border-color: #bf55ec;
+}
+  input[type=password]:hover{
+    border-color: #bf55ec;
+  }
 .signup_btn{
   display: block;
   color: #bf55ec;
@@ -905,3 +919,39 @@ input{
     margin-top: 30px;
     padding-top:30px;
 }
+/* header */
+.logo_header{
+  position: absolute;
+  padding-top:40px;
+  padding-left: 100px;
+  color: #000000;
+  font-size: 40px;
+}
+.first1{
+  background-color: #dfe0df;
+}
+.Navbar1{
+  float: right;
+  margin-top: 53px;
+  
+}
+.Navbar1 li{
+  display:  inline-block;
+  list-style: none;
+  margin-left: 30px;
+}
+.Navbar1 li a{
+  color: #000000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 110%;
+  font-weight: 100;
+ 
+}
+.Navbar1 li a:hover{
+  border-bottom: 2px solid #bf55ec;
+
+}
+
+
+
