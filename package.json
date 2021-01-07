@@ -1,7 +1,7 @@
 {
   "name": "cafe",
   "version": "1.0.0",
-  "description": "",
+  "description": "to run this sample locally:\r ### How to run locally\r - git clone https://github.com/jhaji12/Cafe.git\r - Do `npm init` to install node modules\r - Install all dependencies present in `package.json`\r - Check `.gitignore` for hidden folders\r - Do `nodemon app.js` in the root folder",
   "main": "app.js",
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -13,8 +13,9 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.9",
+    "mongoose": "^5.11.10",
     "nodemon": "^2.0.6",
+    "stripe": "^8.129.0",
     "validator": "^13.5.2"
   },
   "devDependencies": {},
