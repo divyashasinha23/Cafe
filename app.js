@@ -8,7 +8,9 @@ const menuRoute = require('./routes/menuRoute');
 const authRoute = require('./routes/authRoute');
 const cookieParser =require('cookie-parser');
 const {requireAuth, currentUser} = require('./Middleware/authmiddleware');
-const { checkout } = require("./routes/authRoute");
+const path = require('path');
+var multer = require('multer');
+var fs = require('fs'); 
 
 
 
@@ -36,6 +38,16 @@ app.get('/profile', requireAuth, (req,res) => {
 app.get('/orderconfirm', requireAuth, (req,res) =>{
     res.render('home');
 })
+
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads');
+    },
+    filename: (req,file,cb) => {
+        cb(null, file.fieldname + '-' + Date.now());
+    }
+});
+var upload = multer({storage: storage});
 
 app.use(authRoute);
 
