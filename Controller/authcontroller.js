@@ -66,6 +66,7 @@ module.exports.signup_post = async(req,res) => {
                 email:employe.email,
             });  
         }
+        
         else{
             res.status(400);
             throw new Error ('Invalid details');
