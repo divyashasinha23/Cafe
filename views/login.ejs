@@ -1,6 +1,6 @@
 <%- include('partials/head'); -%>
 
-    <form class="login_page" action="/login">
+    <!-- <form class="login_page" action="/login">
     <div>
     <div class="login container">
 
@@ -25,7 +25,22 @@
       <img src="images/heart1.png" alt="heart" height=450px;>
       </div>
 </div>
-</form>
+</form> -->
+<div class= "signup_container">
+  <div class="wrap">
+    <h2 class="signup_head">Log In</h2>
+    <form>
+      <label for="employe_id"></label> 
+      <input type="number" name= "employe_id" placeholder="Employe ID">
+      <div class="employe_id error"></div>
+      <label for="password"></label> 
+      <input type="password" name= "password" placeholder="Password">
+      <div class="password error"></div>
+      <button class="signup_btn" type="submit">Log In</button>
+      
+    </form>
+  </div>
+  </div>
  
 <script>
   const form = document.querySelector('form');

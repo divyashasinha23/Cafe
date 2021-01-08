@@ -1,12 +1,25 @@
 
 <%- include('partials/header'); -%>
-<h1> Registration Successfully</h1>
+<h1 class="profile_success"> Registration Successfull</h1>
+
 <div class = "profile">
     <img class="image" src="images/my image.jpg" alt=""/>
-    <h2 class= "name"><%= employe.first_name %></h2>
-    <p class=" Email">Email: <%= employe.email %></p>
-    <p class= "Employe_id">Employe ID: <%= employe.employe_id %> </p>
-    <p class = "Registration_id">Registration ID: <%= employe._id %></p>
-    <p class = "Mobile_no">Mobile Number: <%= employe.mobile_no %></p>
-    <p class = "Menu"><a href="/">Back to menu</a></p>
+    <h2 class= "name"><%= employe.full_name %></h2>
+    <div class = "wrapper">
+    <p class=" organisation"><span>Organisation:</span> <%= employe.organisation_name %></p>
+    <p class=" Email"><span>Email:</span> <%= employe.email %></p>
+    <p class= "Employe_id"><span>Employe ID:</span> <%= employe.employe_id %> </p>
+    <p class = "Registration_id"><span>Registration ID:</span> 
+        <% var str = String(employe._id); %>
+        <% var matches = str.match(/\d+/g); %>
+        <%  matches =  matches.join(""); %>
+        <% if(matches) { %>
+          <%= matches %>
+       <% } %>
+    </p>
+    <p class = "Mobile_no"><span>Mobile Number:</span> <%= employe.mobile_no %></p>
 </div>
+</div>
+
+
+<p class = "Menu_btn"><a href="/">Back to homepage</a></p>
