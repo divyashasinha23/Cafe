@@ -5,9 +5,9 @@
     <h2 class="signup_head">Create Your Account</h2>
     <form>
       <label for="first_name"></label> 
-      <input type="text" name= "first_name" placeholder="Full name">
+      <input type="text" name= "full_name" placeholder="Full name">
       <label for="last_name"></label> 
-      <input type="text" name= "last_name" placeholder="Organisation">
+      <input type="text" name= "organisation_name" placeholder="Organisation">
       <label for="employe_id"></label> 
       <input type="number" name= "employe_id" placeholder="Employe ID">
       <div class="employe_id error"></div>
@@ -20,7 +20,7 @@
       <label for="mobile_no"></label> 
       <input type="number" name= "mobile_no" placeholder="Mobile no.">
       <label for="first_name"></label> 
-      <a class="signup_btn" type="submit">sign up</a>
+      <button class="signup_btn" type="submit">sign up</button>
       
     </form>
   </div>
@@ -39,8 +39,8 @@
       emailError.textContent='';
       passwordError.textContent = '';
       // get values
-      const first_name = form.first_name.value;
-      const last_name = form.last_name.value;
+      const full_name = form.full_name.value;
+      const organisation_name = form.organisation_name.value;
       const mobile_no = form.mobile_no.value;
       const employe_id = form.employe_id.value;
       const password = form.password.value;
@@ -48,7 +48,7 @@
       try {
         const res = await fetch('/signup', { 
           method: 'POST', 
-          body: JSON.stringify({ first_name,last_name,mobile_no,employe_id, password, email }),
+          body: JSON.stringify({ full_name,organisation_name,mobile_no,employe_id, password, email }),
           headers: {'Content-Type': 'application/json'}
         });
         const data = await res.json();
