@@ -1,18 +1,25 @@
 const mongoose=require('mongoose');
 
 const menuSchema=new mongoose.Schema({
-    dish_name:{
+    id:{
+      type: Number
+    },
+    name:{
       type:String,
       required:true
     },
-    dish_price:{
+    price:{
         type:Number,
         required:true
+    },
+    imgName:{
+      type: String,
+      required: true
     },
 
 });
 
 
-const Menu=mongoose.model('Menu',menuSchema);
+const Menu = mongoose.model('menu',menuSchema);
 
-module.exports=Menu;
+module.exports = Menu;

@@ -1,0 +1,67 @@
+
+<!-- Beverages -->
+<div class="Menu" id="Menu1">
+
+    <div class="Food">
+     <h1 class="menu_head">Beverages</h1>
+    </div>
+    
+    <div class= "Gallery">
+
+    <% menu.Beverages.forEach(function(menu){%>
+     <div class="column">  
+        <a href="/orderconfirm"><img src="<%= menu.imgName %>" ></a> 
+       <div class ="menu_content">
+         <h3><%= menu.name %></h3>
+         <h3><%= menu.price %></h3>
+         <a href="#" class="menu_btn">Order</a>
+         <a href="#" class="meal_btn">Add to Meal</a>
+       </div>
+     </div>
+  <%  }) %>
+    </diV>
+    </div>
+    
+    <!-- snacks section -->
+    <div class="Menu">
+    
+    <div class="Food">
+     <h1 class="menu_head">Snacks</h1>
+    </div>
+    
+    <div class= "Gallery">
+        <% menu.Snacks.forEach(function(menu){%>
+            <div class="column">  
+               <a href="/orderconfirm"><img src="<%= menu.imgName %>" ></a> 
+              <div class ="menu_content">
+                <h3><%= menu.name %></h3>
+                <h3><%= menu.price %></h3>
+                <a href="#" class="menu_btn">Order</a>
+                <a href="#" class="meal_btn">Add to Meal</a>
+              </div>
+            </div>
+         <%  }) %>
+           </diV>
+           </div>
+    
+    <!-- Dessert and ice creams -->
+    
+    <div class="Menu">
+    
+    <div class="Food">
+     <h1 class="menu_head">Dessert and Ice-Creams</h1>
+    </div>
+    <div class= "Gallery">
+    <% menu.Dessert.forEach(function(menu){%>
+        <div class="column">  
+           <a href="/orderconfirm"><img src="<%= menu.imgName %>" ></a> 
+          <div class ="menu_content">
+            <h3><%= menu.name %></h3>
+            <h3><%= menu.price %></h3>
+            <a href="#" class="menu_btn">Order</a>
+            <a href="#" class="meal_btn">Add to Meal</a>
+          </div>
+        </div>
+     <%  }) %>
+       </diV>
+       </div>

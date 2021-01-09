@@ -56,7 +56,7 @@ employeeSchema.statics.login = async function(employe_id, password){
   }
   throw Error('incorrect password');
     }
-    throw Error('incorrect Employe ID');
+    throw Error('invalid employe ID');
 }
 
 

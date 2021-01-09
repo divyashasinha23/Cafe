@@ -3,9 +3,10 @@ const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const dotenv = require('dotenv');
 const colors = require('colors');
-const Menu = require('./data/menu');
+// const Menu = require('./data/menu');
 const menuRoute = require('./routes/menuRoute');
 const authRoute = require('./routes/authRoute');
+const cartRoute = require('./routes/cartRoute');
 const cookieParser =require('cookie-parser');
 const {requireAuth, currentUser} = require('./Middleware/authmiddleware');
 const path = require('path');
@@ -29,33 +30,45 @@ app.use(cookieParser());
 app.set('view engine', 'ejs');
 
 app.get('*', currentUser);
-app.get('/', (req,res) => {
-    res.render('home');
-});
+app.get('/', (req,res) =>{
+    fs.readFile('menu.JSON', function(error, data){
+        if(error) {
+            console.log(error);
+        } else{
+            res.render('home', {
+                menu: JSON.parse(data)
+            });
+        }
+    })
+})
+
 app.get('/profile', requireAuth, (req,res) => {
     res.render('profile');
 })
-app.get('/orderconfirm', requireAuth, (req,res) =>{
-    res.render('home');
+app.get('/orderconfirm', requireAuth, (req,res) => {
+    res.render('cart');
 })
 
-var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads');
-    },
-    filename: (req,file,cb) => {
-        cb(null, file.fieldname + '-' + Date.now());
-    }
-});
-var upload = multer({storage: storage});
+
+// var storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, 'uploads');
+//     },
+//     filename: (req,file,cb) => {
+//         cb(null, file.fieldname + '-' + Date.now());
+//     }
+// });
+// var upload = multer({storage: storage});
 
 app.use(authRoute);
+// app.use(cartRoute);
 
-app.use('api/menu',menuRoute);
+// app.use('api/menu',menuRoute);
 
-app.get('/menu', (req,res) => {
-    res.json(Menu);
-})
+// app.get('/menu', (req,res) => {
+//     res.json(Menu);
+// });
+
 
 PORT = process.env.PORT;
 
