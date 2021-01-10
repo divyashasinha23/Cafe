@@ -49,6 +49,7 @@ const handleErrors = (err) => {
     }
   return errors;
   }
+  // signup and login controllers
 
 module.exports.signup_get = async(req,res) => {
     res.render('signup');
@@ -103,6 +104,7 @@ module.exports.login_post=async(req,res)=>{
             res.status(400).json({errors});
         }
 }
+// logout controller
 module.exports.logout_get = (req,res) => {
   res.cookie('jwt', '', {maxAge: 1});
   res.redirect('/');
