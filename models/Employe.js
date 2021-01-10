@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const {isEmail} = require('validator');
 
+//employee schema
+
 const employeeSchema = new mongoose.Schema({
    full_name:{
        type:String,
@@ -40,13 +42,13 @@ const employeeSchema = new mongoose.Schema({
 
 
 
-
+// bcrypting password
 employeeSchema.pre('save',async function(next){
     const salt=await bcrypt.genSalt();
     this.password=await bcrypt.hash(this.password,salt);
     next();
 });
-
+// static login
 employeeSchema.statics.login = async function(employe_id, password){
     const employe = await this.findOne({employe_id});
     if (employe){
