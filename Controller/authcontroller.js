@@ -1,19 +1,21 @@
 const mongoose = require('mongoose');
 const Employe = require('../models/Employe');
+// const Cart = require('../models/cart');
 const jwt = require('jsonwebtoken');
+
 
 
 //creating json web token
 const maxAge = 20 * 24 * 60 * 60;
 const Token = (id) => {
-    return jwt.sign({id}, 'cafeteria', {
+    return jwt.sign({id}, process.env.JWT_SECRET_KEY, {
     expiresIn: maxAge,
     });
 };
 //error handling
 const handleErrors = (err) => {
     console.log(err.message, err.code);
-    let errors = { employe_id: '', password: '' };
+    let errors = { employe_id: '', password: '', email: ''};
   
     if (err.code === 11000) {
         if(err.message.includes("email_1")){
@@ -26,8 +28,8 @@ const handleErrors = (err) => {
         return errors;
     }
   
-    if(err.message === "incorrect Employe ID"){
-      errors.employe_id = "Employe ID not registered";
+    if(err.message === "invalid employe ID"){
+      errors.employe_id = "Please enter a valid Employe ID";
      
     }
   
@@ -37,11 +39,14 @@ const handleErrors = (err) => {
     }
   
   
-  if (err.message.includes['employe validation failed']) {
-    Object.values(err.errors).forEach(({ properties }) => {
-      errors.properties.path = properties.message;
-    });
-  }
+    if (err.message.includes('employe validation failed')) {
+      // console.log(err);
+      Object.values(err.errors).forEach(({ properties }) => {
+        // console.log(val);
+        // console.log(properties);
+        errors[properties.path] = properties.message;
+      });
+    }
   return errors;
   }
 
@@ -102,6 +107,8 @@ module.exports.logout_get = (req,res) => {
   res.cookie('jwt', '', {maxAge: 1});
   res.redirect('/');
 }
+
+
 
 
 

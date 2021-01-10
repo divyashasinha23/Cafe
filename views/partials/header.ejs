@@ -14,7 +14,8 @@
        <h4 class="logo_header">Cafeteria</h4>
        <ul class="Navbar1">
        <% if(employe) { %>
-         <h1>Welcome <%= employe.first_name %></h1>
+         <h1>Welcom <%= employe.full_name %></h1>
+         <li><a href = "/orderconfirm">Cart</a></li>
          <li><a href = "/logout">Log Out</a></li>
        <% }  else {%>   
             <li><a href="/" class= "active"> Home</a></li>

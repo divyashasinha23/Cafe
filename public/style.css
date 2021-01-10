@@ -575,6 +575,9 @@ header{
   float: right;
   margin-top: 30px;
 }
+.Navbar h1{
+  font-size: 15px;
+}
 .Navbar li{
   display:  inline-block;
   list-style: none;
@@ -713,7 +716,7 @@ h1{
 
 footer{
  bottom: 0px;
- background:linear-gradient(to right,#e6e6e6, #f0e2d0 );
+ background:linear-gradient(to right,#cdac81, #6f4e37 );
  width:100%;
  
 }
@@ -775,7 +778,7 @@ footer{
   background:#e6e6e6;
   box-sizing: border-box;
   padding:40px;
-  color: #fff;
+  color: #000000;
   margin-top: 50px;
 }
 h2{
@@ -815,11 +818,11 @@ input[type=text]:hover{
   margin-top: 10px;
   text-decoration: none;
   padding: 10px 5px;
-  border-radius: 200px;
+  border-radius: 100px;
   border-color:#bf55ec ;
-  size: 2px;
+  size: 5px;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 /**Login css file **/
@@ -965,12 +968,14 @@ input{
   font-size: 40px;
 }
 .first1{
-  background-color: #6f4e37;
+  background:linear-gradient(to right,#cdac81, #6f4e37 );
 }
 .Navbar1{
   float: right;
-  margin-top: 53px;
-  
+  margin-top: 53px; 
+}
+.Navbar1 h1{
+  font-size: 15px;
 }
 .Navbar1 li{
   display:  inline-block;

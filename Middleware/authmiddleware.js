@@ -23,7 +23,7 @@ const requireAuth = (req,res,next) => {
 const currentUser = (req,res,next) => {
     const token = req.cookies.jwt;
     if(token){
-        jwt.verify(token, 'cafeteria', async (err, decodedToken) => {
+        jwt.verify(token,process.env.JWT_SECRET_KEY, async (err, decodedToken) => {
             if(err){
                 console.log(err.message);
                 res.locals.employe = null;
@@ -42,27 +42,6 @@ const currentUser = (req,res,next) => {
        next();
     }
 }
-// const currentOrder = (req,res,next) => {
-//     const token = req.cookies.jwt;
-//     if(token){
-//         jwt.verify(token, 'cafeteria', async (err, decodedToken) => {
-//             if(err){
-//                 console.log(err.message);
-//                 res.locals.employe = null;
-//                 next();
-//             } else{
-//                 console.log(decodedToken);
-//                 let employe = await Employe.findById(decodedToken.id);
-//                 res.locals.employe = employe;
-//                 res.render('home');
-//                 next();
-//             }
-//         });
-//     }
-//     else{
-//        res.locals.employe = null;
-//        next();
-//     }
-// }
+
 
 module.exports = {requireAuth, currentUser};
