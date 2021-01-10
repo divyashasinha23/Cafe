@@ -1,15 +1,18 @@
 const mongoose=require('mongoose');
 
 const menuSchema=new mongoose.Schema({
-    dish_name:{
+    name:{
       type:String,
       required:true
     },
-    dish_price:{
+    price:{
         type:Number,
         required:true
     },
-
+    imgName:{
+      type:Number,
+      required:true
+    }
 });
 
 

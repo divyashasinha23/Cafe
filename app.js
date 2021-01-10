@@ -9,15 +9,11 @@ const authRoute = require('./routes/authRoute');
 const cookieParser =require('cookie-parser');
 const {requireAuth, currentUser} = require('./Middleware/authmiddleware');
 const { checkout } = require("./routes/authRoute");
-if(process.env.Node_Env !=='production')
-{
-    require('dotenv').config({path:'CAFE/.env'});
-}
-const stripeSecretKey=process.env.STRIPE_SECRET_KEY;
-console.log(stripeSecretKey);
-const publishable_key='pk_test_51I6rKrEqE6krtzrwGHckDwmOJhmlb3mOpIJtD6w9DU2d879zRE7CSxtnJ66Qgr0BOBiSBdYGFLYqME74F2g6Akcg00dBKy1rAr';
 
-// const stripe =require('stripe')(secret_key);
+const publishable_key='pk_test_51I6rKrEqE6krtzrwGHckDwmOJhmlb3mOpIJtD6w9DU2d879zRE7CSxtnJ66Qgr0BOBiSBdYGFLYqME74F2g6Akcg00dBKy1rAr';
+const secret_key='sk_test_51I6rKrEqE6krtzrwnyOZRJwLpK5idhekgzbXuX2BrEYZOhcqMqjDPDINVWmFIzCBKwvM5YAOGsucHXQesyjxMhHs00wixXeSXo';
+const stripe =require('stripe')(secret_key);
+console.log(secret_key);
 
 dotenv.config();
 
@@ -39,41 +35,45 @@ app.get('/', (req,res) => {
 app.get('/profile', requireAuth, (req,res) => {
     res.render('profile');
 })
+app.get('/store',requireAuth,(req,res)=>{
+res.render('home');
+
+})
 app.get('/orderconfirm', requireAuth, (req,res) =>{
 
     res.render('cart',{
         key:publishable_key
     });
 })
-// app.post('/payment',requireAuth,(req,res)=>{
-//     stripe.customers.create({ 
-//         email: req.body.email, 
-//         name: req.body.first_name, 
-//         address: { 
-//             line1: 'TC 9/4 Old MES colony', 
-//             postal_code: '110092', 
-//             city: 'New Delhi', 
-//             state: 'Delhi', 
-//             country: 'India', 
-//         } 
-//     }) 
-//     .then((customer) => { 
+app.post('/payment',requireAuth,(req,res)=>{
+    stripe.customers.create({ 
+        email: req.body.email, 
+        name: req.body.first_name, 
+        address: { 
+            line1: 'TC 9/4 Old MES colony', 
+            postal_code: '110092', 
+            city: 'New Delhi', 
+            state: 'Delhi', 
+            country: 'India', 
+        } 
+    }) 
+    .then((customer) => { 
 
-//         return stripe.charges.create({ 
-//             amount: 7000,    // Charing Rs 25 
-//             description: 'Web Development Product', 
-//             currency: 'USD', 
-//             customer: customer.id 
-//         }); 
-//     }) 
-//     .then((charge) => { 
-//         console.log("success")
-//         res.send("Success") // If no error occurs 
-//     }) 
-//     .catch((err) => { 
-//         res.send(err)    // If some error occurs 
-//     }); 
-// })
+        return stripe.charges.create({ 
+            amount: 7000,    // Charing Rs 25 
+            description: 'Web Development Product', 
+            currency: 'USD', 
+            customer: customer.id 
+        }); 
+    }) 
+    .then((charge) => { 
+        console.log("success")
+        res.send("Success") // If no error occurs 
+    }) 
+    .catch((err) => { 
+        res.send(err)    // If some error occurs 
+    }); 
+})
 // app.get('*', currentUser);
 // app.get('/profile', requireAuth, (req,res) => {
 //     res.render('profile');
