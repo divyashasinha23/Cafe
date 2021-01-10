@@ -775,7 +775,7 @@ footer{
   max-width: 500px;
   border-radius: 20px;
   margin:auto;
-  background:#e6e6e6;
+  background-color:  #ffebcd ;
   box-sizing: border-box;
   padding:40px;
   color: #000000;
@@ -795,7 +795,7 @@ input[type=text],input[type=password],input[type=number]{
   background: #fff;
   outline: none;
   border-color: #dfe0df;
-   border-bottom: 2px dotted #000000; 
+  border-bottom: 2px dotted #000000; 
   color: #000000;
   margin: 5px;
   font-weight: bold;
@@ -811,72 +811,25 @@ input[type=text]:hover{
     border-color: #bf55ec;
   }
 .signup_btn{
-  display: block;
-  color: #bf55ec;
+  background-color: #d99ef3; /* Green */
+  border: none;
+  border-radius: 8px;
+  border-color:#bf55ec;
+  color: #000;
+  padding: 15px 32px;
   text-align: center;
-  background-color:#ffffff;
-  margin-top: 10px;
   text-decoration: none;
-  padding: 10px 5px;
-  border-radius: 100px;
-  border-color:#bf55ec ;
-  size: 5px;
-  text-transform: uppercase;
+  display: inline-block;
   font-size: 15px;
-}
-
-/**Login css file **/
-/* .login
-{
-  font-family: Curlz-MT;
-  text-align: center;
-  margin-left: 100px;
-  margin-right: 600px;
-  margin-top: 100px;
-  display: flex;
-  height: 450px;
-  background-color: white;
-  box-shadow: 5px 5px 5px grey;
-  border:  inset;
-}
-.login-text{
-  text-align: center;
-  font-family: Curlz MT;
-}
-.login-text img{
+  text-transform: uppercase;
   margin-top: 10px;
+  text-align: center;
+  margin-left: 3px;
 }
-.container
-{
-  display:flex;
+.signup_btn:hover{
+  background-color: #bf55ec ;
 }
-.login button{
-  height: 30px;
-  width: 55px;
-  background-color: #ae7d5b;
-  color: white;
-  margin-top: 20px;
 
-}
-button a{
-  line:none;
-}
-button:hover{
-  opacity: 0.8;
-}
- span a{
-  color: brown;
-  line: none;
-  font-size: 20px;
-}
-input{
-  box-shadow: rgba(0,0,0,0.7);
-}
-.image3{
-  margin-left: 850px;
-  margin-top: -460px;
-  box-shadow: 4px 2px 4px white;
-} */
 
 /*Profile */
   

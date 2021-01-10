@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 
 //creating json web token
-const maxAge = 20 * 24 * 60 * 60;
+const maxAge = 1 * 24 * 60 * 60 * 1000;
 const Token = (id) => {
     return jwt.sign({id}, 'cafeteria', {
     expiresIn: maxAge,
