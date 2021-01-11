@@ -3,26 +3,7 @@
 <%- include('partials/head'); -%>
 
 <!-- landing page -->
-<header>
-  <nav>
-    <div class="first clearfix">
-      <img src="images/logo.png" class="logo">
-     <h4 class="logo_head">Cafeteria</h4>
-     <ul class="Navbar">
-     <% if(employe) { %>
-       <h1>Welcome <%= employe.full_name %></h1>
-       <li><a href = "/logout">Log Out</a></li>
-       <li><a href = "/orderconfirm">Cart</a></li>
-     <% }  else {%>   
-          <li><a href="/" class= "active"> Home</a></li>
-          <li><a href="#Menu1"> Menu</a></li>
-          <li><a href="/login"> Log in</a></li>
-          <li><a href="/signup"> Sign Up</a></li>
-          <li><a href="#About-us"> About Us</a></li>
-      </ul>
-      <% } %>
-    </div>  
-   </nav>
+
   <div class= "Home">
   <h1 class="changecolor">FEELING TIRED?</h1>
   <h1 class="changecolor1">HAVE A COFFEE</h1>
@@ -31,8 +12,91 @@
  </header>
 
 <!-- Menu -->
- <%- include('menu'); -%>       
+
+<!-- Beverages -->
+<div class="Menu" id="Menu1">
+
+  <div class="Food">
+   <h1 class="menu_head">Beverages</h1>
+  </div>
+  
+  <div class= "Gallery">
+
+  <% menu.Beverages.forEach(function(menu){%>
+   <div class="column" data-item-id="<%= menu.id %>">  
+  <img class= "shop-item-image" src="<%= menu.imgName %>" >
+     <div class ="menu_content">
+       <h3 class="shop-item-title"><%= menu.name %></h3>
+       <h3 class="shop-item-price">Rs.<%= menu.price %></h3>
+       <button class="menu_btn shop-item-button" type="button">Order</button>
+    <button class="meal_btn shop-item-button" type="button">Add to Meal</button>
+     </div>
+   </div>
+<%  }) %>
+  </diV>
+  </div>
+  
+  <!-- snacks section -->
+  <div class="Menu">
+  
+  <div class="Food">
+   <h1 class="menu_head">Snacks</h1>
+  </div>
+  
+  <div class= "Gallery">
+      <% menu.Snacks.forEach(function(menu){%>
+          <div class="column">  
+             <img src="<%= menu.imgName %>" >
+            <div class ="menu_content">
+              <h3><%= menu.name %></h3>
+              <h3><%= menu.price %></h3>
+              <a class="menu_btn">Order</a>
+              <a class="meal_btn">Add to Meal</a>
+            </div>
+          </div>
+       <%  }) %>
+         </diV>
+         </div>
+  
+  <!-- Dessert and ice creams -->
+  
+  <div class="Menu">
+  
+  <div class="Food">
+   <h1 class="menu_head">Dessert and Ice-Creams</h1>
+  </div>
+  <div class= "Gallery">
+  <% menu.Dessert.forEach(function(menu){%>
+      <div class="column">  
+         <img src="<%= menu.imgName %>" >
+        <div class ="menu_content">
+          <h3><%= menu.name %></h3>
+          <h3><%= menu.price %></h3>
+          <a class="menu_btn">Order</a>
+          <a class="meal_btn">Add to Meal</a>
+        </div>
+      </div>
+   <%  }) %>
+     </diV>
+     </div>  
 
 <!-- Footer -->
+
 <%- include('partials/footer'); -%>
+
+<section class="container content-section">
+  <h2 class="section-header">CART</h2>
+  <div class="cart-row">
+      <span class="cart-item cart-header cart-column">ITEM</span>
+      <span class="cart-price cart-header cart-column">PRICE</span>
+      <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+  </div>
+  <div class="cart-items">
+  </div>
+  <div class="cart-total">
+      <strong class="cart-total-title">Total</strong>
+      <span class="cart-total-price">$0</span>
+  </div>
+  <button class="btn btn-primary btn-purchase" type="button">BUY NOW</button>
+</section>
   

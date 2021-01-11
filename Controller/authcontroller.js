@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Employe = require('../models/Employe');
-const Cart = require('../models/cart');
+// const Cart = require('../models/cart');
 const jwt = require('jsonwebtoken');
 
 
@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 //creating json web token
 const maxAge = 1 * 24 * 60 * 60 * 1000;
 const Token = (id) => {
-    return jwt.sign({id}, 'cafeteria', {
+    return jwt.sign({id}, process.env.JWT_SECRET_KEY, {
     expiresIn: maxAge,
     });
 };

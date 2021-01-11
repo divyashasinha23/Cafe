@@ -23,7 +23,7 @@ const requireAuth = (req,res,next) => {
 const currentUser = (req,res,next) => {
     const token = req.cookies.jwt;
     if(token){
-        jwt.verify(token, 'cafeteria', async (err, decodedToken) => {
+        jwt.verify(token,process.env.JWT_SECRET_KEY, async (err, decodedToken) => {
             if(err){
                 console.log(err.message);
                 res.locals.employe = null;

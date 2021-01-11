@@ -12,6 +12,7 @@ const path = require('path');
 var multer = require('multer');
 var fs = require('fs'); 
 
+
 dotenv.config();
 
 connectDB()
@@ -25,6 +26,10 @@ app.use(cookieParser());
 //view engine
 app.set('view engine', 'ejs');
 
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
+const stripe = require('stripe')(stripeSecretKey);
+
 app.get('*', currentUser);
 app.get('/', (req,res) =>{
     fs.readFile('menu.JSON', function(error, data){
@@ -32,19 +37,50 @@ app.get('/', (req,res) =>{
             console.log(error);
         } else{
             res.render('home', {
+                stripePublicKey:stripePublicKey,
                 menu: JSON.parse(data)
             });
         }
     })
 })
-//routes that require Authentication before getting accessed
+
+
 app.get('/profile', requireAuth, (req,res) => {
     res.render('profile');
 })
-app.get('/orderconfirm', requireAuth, (req,res) => {
-    res.render('cart');
+// app.get('/orderconfirm',requireAuth, (req,res) => {
+//     res.render('cart');
+// })
+app.post('/orderconfirm', function(req,res){
+    fs.readFile('menu.json',function(arror,data){
+        if(error)
+        {
+            res.status(500).end();
+            console.log(error);
+        }else{
+            const menuJson=JSON.parse(data)
+            const menuArray=menuJson.Beverages.concat(menuJson.Snacks).concat(menuJson.Dessert)
+            let total=0
+            req.body.menu.forEach(function(menu){
+                const menuJson=menuArray.find(function(i){
+                    return i.id==menu.id
+                })
+                total=total + menuJson.price *menu.quantity
+            })
+            stripe.charges.create({
+                amount:total,
+                source:req.body.stripeTokenId,
+                currency:'ind'
+            }).then(function(){
+                console.log("charge successful")
+                res.json({message:'successfully ordered'})
+            }).catch(function(){
+                console.log('charge fail')
+                res.status(500).end()
+            })
+        }
+    })
 })
-
 
 // var storage = multer.diskStorage({
 //     destination: (req, file, cb) => {
@@ -57,8 +93,6 @@ app.get('/orderconfirm', requireAuth, (req,res) => {
 // var upload = multer({storage: storage});
 
 app.use(authRoute);
-
-
 
 PORT = process.env.PORT;
 
