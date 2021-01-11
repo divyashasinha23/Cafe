@@ -1,3 +1,4 @@
+
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -44,7 +45,7 @@ var stripeHandler = StripeCheckout.configure({
             })
         }
 
-        fetch('/purchase', {
+        fetch('/orderconfirm', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -71,7 +72,7 @@ var stripeHandler = StripeCheckout.configure({
 
 function purchaseClicked() {
     var priceElement = document.getElementsByClassName('cart-total-price')[0]
-    var price = parseFloat(priceElement.innerText.replace('$', '')) * 100
+    var price = parseFloat(priceElement.innerText.replace('$', ''));
     stripeHandler.open({
         amount: price
     })
@@ -142,6 +143,6 @@ function updateCartTotal() {
         var quantity = quantityElement.value
         total = total + (price * quantity)
     }
-    total = Math.round(total * 100) / 100
+    // total = Math.round(total * 100);
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }

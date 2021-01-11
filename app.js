@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const dotenv = require('dotenv');
 const colors = require('colors');
-// const Menu = require('./data/menu');
 const menuRoute = require('./routes/menuRoute');
 const authRoute = require('./routes/authRoute');
 const cartRoute = require('./routes/cartRoute');
@@ -12,10 +11,6 @@ const {requireAuth, currentUser} = require('./Middleware/authmiddleware');
 const path = require('path');
 var multer = require('multer');
 var fs = require('fs'); 
-
-
-
-
 
 
 dotenv.config();
@@ -31,11 +26,10 @@ app.use(cookieParser());
 //view engine
 app.set('view engine', 'ejs');
 
-const stripeSecretKey=process.env.STRIPE_SECRET_KEY;
-const stripePublicKey=process.env.STRIPE_PUBLIC_KEY;
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
 const stripe = require('stripe')(stripeSecretKey);
 
-console.log(stripeSecretKey);
 app.get('*', currentUser);
 app.get('/', (req,res) =>{
     fs.readFile('menu.JSON', function(error, data){
@@ -54,13 +48,14 @@ app.get('/', (req,res) =>{
 app.get('/profile', requireAuth, (req,res) => {
     res.render('profile');
 })
-app.get('/orderconfirm', requireAuth, (req,res) =>{
-    res.render('cart');
-})
-app.post('/orderconfirm',function(req,res){
+// app.get('/orderconfirm',requireAuth, (req,res) => {
+//     res.render('cart');
+// })
+app.post('/orderconfirm', function(req,res){
     fs.readFile('menu.json',function(arror,data){
         if(error)
         {
+            res.status(500).end();
             console.log(error);
         }else{
             const menuJson=JSON.parse(data)
@@ -81,7 +76,7 @@ app.post('/orderconfirm',function(req,res){
                 res.json({message:'successfully ordered'})
             }).catch(function(){
                 console.log('charge fail')
-                res.send(error)
+                res.status(500).end()
             })
         }
     })
@@ -98,14 +93,6 @@ app.post('/orderconfirm',function(req,res){
 // var upload = multer({storage: storage});
 
 app.use(authRoute);
-// app.use(cartRoute);
-
-// app.use('api/menu',menuRoute);
-
-// app.get('/menu', (req,res) => {
-//     res.json(Menu);
-// });
-
 
 PORT = process.env.PORT;
 

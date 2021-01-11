@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>Cafeteria</title>
-    <link rel="icon" href="White_and_Brown_Cafe_Logo-removebg-preview (1) (1).png">
+    <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
-
   </head>
   <body >
     <nav>
@@ -14,7 +13,7 @@
        <h4 class="logo_header">Cafeteria</h4>
        <ul class="Navbar1">
        <% if(employe) { %>
-         <h1>Welcom <%= employe.full_name %></h1>
+         <h1>Welcome <%= employe.full_name %></h1>
          <li><a href = "/orderconfirm">Cart</a></li>
          <li><a href = "/logout">Log Out</a></li>
        <% }  else {%>   

@@ -43,5 +43,4 @@ const currentUser = (req,res,next) => {
     }
 }
 
-
 module.exports = {requireAuth, currentUser};

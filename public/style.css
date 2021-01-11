@@ -686,26 +686,28 @@ h1{
   font-size: 18px;
 }
 .menu_btn{
-  display: block;
+  display: inline-block;
   color: #fff;
   text-align: center;
   background-color:#ceb19c;
   margin-top: 10px;
   text-decoration: none;
-  padding: 5px 2px;
-  border-radius: 200px;
-  size: 2px;
+  padding: 5px 20px;
+  border-radius:4px;
+  size: 10px;
+  font-size: 16px;
 }
 .meal_btn{
-  display: block;
+  display: inline-block;
   color: #fff;
   text-align: center;
   background-color:#ceb19c;
   margin-top: 10px;
   text-decoration: none;
-  padding: 5px 2px;
-  border-radius: 200px;
-  size: 2px;
+  padding: 5px 20px;
+  border-radius:4px;
+  size: 10px;
+  font-size: 16px;
 }
 .column:hover{
   transform: scale(1.05);
@@ -775,7 +777,7 @@ footer{
   max-width: 500px;
   border-radius: 20px;
   margin:auto;
-  background:#e6e6e6;
+  background-color:  #ffebcd ;
   box-sizing: border-box;
   padding:40px;
   color: #000000;
@@ -795,7 +797,7 @@ input[type=text],input[type=password],input[type=number]{
   background: #fff;
   outline: none;
   border-color: #dfe0df;
-   border-bottom: 2px dotted #000000; 
+  border-bottom: 2px dotted #000000; 
   color: #000000;
   margin: 5px;
   font-weight: bold;
@@ -811,72 +813,25 @@ input[type=text]:hover{
     border-color: #bf55ec;
   }
 .signup_btn{
-  display: block;
-  color: #bf55ec;
+  background-color: #d99ef3; /* Green */
+  border: none;
+  border-radius: 8px;
+  border-color:#bf55ec;
+  color: #000;
+  padding: 15px 32px;
   text-align: center;
-  background-color:#ffffff;
-  margin-top: 10px;
   text-decoration: none;
-  padding: 10px 5px;
-  border-radius: 100px;
-  border-color:#bf55ec ;
-  size: 5px;
-  text-transform: uppercase;
+  display: inline-block;
   font-size: 15px;
-}
-
-/**Login css file **/
-/* .login
-{
-  font-family: Curlz-MT;
-  text-align: center;
-  margin-left: 100px;
-  margin-right: 600px;
-  margin-top: 100px;
-  display: flex;
-  height: 450px;
-  background-color: white;
-  box-shadow: 5px 5px 5px grey;
-  border:  inset;
-}
-.login-text{
-  text-align: center;
-  font-family: Curlz MT;
-}
-.login-text img{
+  text-transform: uppercase;
   margin-top: 10px;
+  text-align: center;
+  margin-left: 3px;
 }
-.container
-{
-  display:flex;
+.signup_btn:hover{
+  background-color: #bf55ec ;
 }
-.login button{
-  height: 30px;
-  width: 55px;
-  background-color: #ae7d5b;
-  color: white;
-  margin-top: 20px;
 
-}
-button a{
-  line:none;
-}
-button:hover{
-  opacity: 0.8;
-}
- span a{
-  color: brown;
-  line: none;
-  font-size: 20px;
-}
-input{
-  box-shadow: rgba(0,0,0,0.7);
-}
-.image3{
-  margin-left: 850px;
-  margin-top: -460px;
-  box-shadow: 4px 2px 4px white;
-} */
 
 /*Profile */
   
@@ -993,6 +948,109 @@ input{
 .Navbar1 li a:hover{
   border-bottom: 2px solid #bf55ec;
 
+}
+
+/*  Add to cart */
+.cart-header {
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #333;
+}
+
+.cart-column {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-right: 1.5em;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.cart-row {
+  display: flex;
+}
+
+.cart-item {
+  width: 45%;
+}
+
+.cart-price {
+  width: 20%;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.cart-quantity {
+  width: 35%;
+}
+
+.cart-item-title {
+  color: #333;
+  margin-left: .5em;
+  font-size: 1.2em;
+}
+
+.cart-item-image {
+  width: 75px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.btn-danger {
+  color: white;
+  background-color: #EB5757;
+  border: none;
+  border-radius: .3em;
+  font-weight: bold;
+}
+
+.btn-danger:hover {
+  background-color: #CC4C4C;
+}
+
+.cart-quantity-input {
+  height: 34px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid #56CCF2;
+  background-color: #eee;
+  color: #333;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 25px;
+}
+
+.cart-row:last-child {
+  border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+  border: none;
+}
+
+.cart-total {
+  text-align: end;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.cart-total-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: black;
+  margin-right: 20px;
+}
+
+.cart-total-price {
+  color: #333;
+  font-size: 1.1em;
+}
+
+.btn-purchase {
+  display: block;
+  margin: 40px auto 80px auto;
+  font-size: 1.75em;
 }
 
 
