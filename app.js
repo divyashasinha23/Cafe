@@ -54,7 +54,7 @@ app.get('/', (req,res) =>{
 app.get('/profile', requireAuth, (req,res) => {
     res.render('profile');
 })
-app.get('/orderconfirm', requireAuth, (req,res) => {
+app.get('/orderconfirm', requireAuth, (req,res) =>{
     res.render('cart');
 })
 app.post('/orderconfirm',function(req,res){
