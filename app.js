@@ -11,7 +11,8 @@ const {requireAuth, currentUser} = require('./Middleware/authmiddleware');
 const path = require('path');
 var multer = require('multer');
 var fs = require('fs'); 
-
+var Employe = require('./models/Employe');
+const upload = require('./Middleware/authmiddleware');
 
 dotenv.config();
 
@@ -26,9 +27,11 @@ app.use(cookieParser());
 //view engine
 app.set('view engine', 'ejs');
 
+//Stripe key generation
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
 const stripe = require('stripe')(stripeSecretKey);
+
 
 app.get('*', currentUser);
 app.get('/', (req,res) =>{
@@ -48,11 +51,23 @@ app.get('/', (req,res) =>{
 app.get('/profile', requireAuth, (req,res) => {
     res.render('profile');
 })
+app.get('/orderconfirm',requireAuth, (req,res) => {
+    res.render('cart');
+})
 // app.get('/orderconfirm',requireAuth, (req,res) => {
-//     res.render('cart');
-// })
+//     fs.readFile('menu.JSON', function(error, data){
+//         if(error) {
+//             console.log(error);
+//         } else{
+//             res.render('cart', {
+//                 stripePublicKey:stripePublicKey,
+//                 menu: JSON.parse(data)
+//             });
+//         }
+//     })
+// });
 app.post('/orderconfirm', function(req,res){
-    fs.readFile('menu.json',function(arror,data){
+    fs.readFile('menu.json',function(error,data){
         if(error)
         {
             res.status(500).end();
@@ -62,10 +77,10 @@ app.post('/orderconfirm', function(req,res){
             const menuArray=menuJson.Beverages.concat(menuJson.Snacks).concat(menuJson.Dessert)
             let total=0
             req.body.menu.forEach(function(menu){
-                const menuJson=menuArray.find(function(i){
-                    return i.id==menu.id
+                const menuJson= menuArray.find(function(i){
+                    return i.id == menu.id
                 })
-                total=total + menuJson.price *menu.quantity
+                total= total + menuJson.price * menu.quantity
             })
             stripe.charges.create({
                 amount:total,
@@ -82,6 +97,8 @@ app.post('/orderconfirm', function(req,res){
     })
 })
 
+//upload image
+
 // var storage = multer.diskStorage({
 //     destination: (req, file, cb) => {
 //         cb(null, 'uploads');
@@ -91,6 +108,42 @@ app.post('/orderconfirm', function(req,res){
 //     }
 // });
 // var upload = multer({storage: storage});
+if (typeof localStorage === "undefined" || localStorage === null) {
+    const LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+  }
+  
+ 
+  
+
+  app.post('/upload', upload, function(req, res, next) {
+    var imageFile=req.file.filename;
+   var success =req.file.filename+ " uploaded successfully";
+  
+   var imageDetails= new uploadModel({
+    imagename:imageFile
+   });
+   imageDetails.save(function(err,doc){
+  if(err) throw err;
+  
+  imageData.exec(function(err,data){
+  if(err) throw err;
+  res.render('upload-file', { title: 'Upload File', records:data,   success:success });
+  });
+  
+   });
+  
+    });
+    app.get('/upload',function(req, res, next) {
+        imageData.exec(function(err,data){
+          if(err) throw err;
+      res.render('upload-file', { title: 'Upload File', records:data, success:'' });
+        });
+      });
+      
+  
+
+
 
 app.use(authRoute);
 

@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Employe = require('../models/Employe');
 // const Cart = require('../models/cart');
 const jwt = require('jsonwebtoken');
+const path = require('path');
+var multer = require('multer');
+
+
 
 
 
@@ -55,9 +59,9 @@ module.exports.signup_get = async(req,res) => {
     res.render('signup');
 }
 module.exports.signup_post = async(req,res) => {
-    const {email, password, employe_id,mobile_no,organisation_name,full_name} = req.body;
+    const {email, password, employe_id,mobile_no,organisation_name,full_name,img} = req.body;
     try{
-        const employe = await Employe.create({email, password, employe_id,mobile_no,organisation_name,full_name});
+        const employe = await Employe.create({email, password, employe_id,mobile_no,organisation_name,full_name,img});
         const  token = Token(employe._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
         if(employe){
@@ -70,6 +74,7 @@ module.exports.signup_post = async(req,res) => {
                 password:employe,password,
                 employe_id: employe.employe_id,
                 email:employe.email,
+                img:employe.file.filename
             });  
         }
         
@@ -109,7 +114,6 @@ module.exports.logout_get = (req,res) => {
   res.cookie('jwt', '', {maxAge: 1});
   res.redirect('/');
 }
-
 
 
 

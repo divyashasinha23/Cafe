@@ -3,7 +3,7 @@
 <div class= "signup_container">
   <div class="wrap">
     <h2 class="signup_head">Create Your Account</h2>
-    <form>
+    <form  action="/post" method="post", enctype="multipart/form-data">
       <label for="first_name"></label> 
       <input type="text" name= "full_name" placeholder="Full name">
       <label for="last_name"></label> 
@@ -19,9 +19,11 @@
       <div class="password error"></div>
       <label for="mobile_no"></label> 
       <input type="number" name= "mobile_no" placeholder="Mobile no.">
-      <label for="first_name"></label> 
+      <label for="first_name"></label>
+      <label for="image">Upload EmployeId Card</label>
+      <input type="file" name="file" id="input-files"> 
       <button class="signup_btn" type="submit">sign up</button>
-      
+    
     </form>
   </div>
   </div>
@@ -66,4 +68,6 @@
         console.log(err);
       }
     });
+
+
   </script>
