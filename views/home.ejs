@@ -27,7 +27,7 @@
   <img class= "shop-item-image" src="<%= menu.imgName %>" >
      <div class ="menu_content">
        <h3 class="shop-item-title"><%= menu.name %></h3>
-       <h3 class="shop-item-price">Rs.<%= menu.price %></h3>
+       <h3 class="shop-item-price"><%= menu.price %></h3>
        <button class="menu_btn shop-item-button" type="button">Order</button>
     <button class="meal_btn shop-item-button" type="button">Add to Meal</button>
      </div>
@@ -45,15 +45,15 @@
   
   <div class= "Gallery">
       <% menu.Snacks.forEach(function(menu){%>
-          <div class="column">  
-             <img src="<%= menu.imgName %>" >
-            <div class ="menu_content">
-              <h3><%= menu.name %></h3>
-              <h3><%= menu.price %></h3>
-              <a class="menu_btn">Order</a>
-              <a class="meal_btn">Add to Meal</a>
-            </div>
-          </div>
+        <div class="column" data-item-id="<%= menu.id %>">  
+          <img class= "shop-item-image" src="<%= menu.imgName %>" >
+             <div class ="menu_content">
+               <h3 class="shop-item-title"><%= menu.name %></h3>
+               <h3 class="shop-item-price"><%= menu.price %></h3>
+               <button class="menu_btn shop-item-button" type="button">Order</button>
+            <button class="meal_btn shop-item-button" type="button">Add to Meal</button>
+             </div>
+           </div>
        <%  }) %>
          </diV>
          </div>
@@ -67,15 +67,15 @@
   </div>
   <div class= "Gallery">
   <% menu.Dessert.forEach(function(menu){%>
-      <div class="column">  
-         <img src="<%= menu.imgName %>" >
-        <div class ="menu_content">
-          <h3><%= menu.name %></h3>
-          <h3><%= menu.price %></h3>
-          <a class="menu_btn">Order</a>
-          <a class="meal_btn">Add to Meal</a>
-        </div>
-      </div>
+    <div class="column" data-item-id="<%= menu.id %>">  
+      <img class= "shop-item-image" src="<%= menu.imgName %>" >
+         <div class ="menu_content">
+           <h3 class="shop-item-title"><%= menu.name %></h3>
+           <h3 class="shop-item-price"><%= menu.price %></h3>
+           <button class="menu_btn shop-item-button" type="button">Order</button>
+        <button class="meal_btn shop-item-button" type="button">Add to Meal</button>
+         </div>
+       </div>
    <%  }) %>
      </diV>
      </div>  
@@ -95,7 +95,7 @@
   </div>
   <div class="cart-total">
       <strong class="cart-total-title">Total</strong>
-      <span class="cart-total-price">$0</span>
+      <span class="cart-total-price">0</span>
   </div>
   <button class="btn btn-primary btn-purchase" type="button">BUY NOW</button>
 </section>

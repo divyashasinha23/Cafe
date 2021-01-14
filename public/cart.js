@@ -72,11 +72,12 @@ var stripeHandler = StripeCheckout.configure({
 
 function purchaseClicked() {
     var priceElement = document.getElementsByClassName('cart-total-price')[0]
-    var price = parseFloat(priceElement.innerText.replace('$', ''));
+    var price = parseFloat(priceElement.innerText.replace('Rs.', ''));
     stripeHandler.open({
         amount: price
     })
 }
+
 
 function removeCartItem(event) {
     var buttonClicked = event.target
@@ -111,7 +112,7 @@ function addItemToCart(title, price, imageSrc, id) {
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
     for (var i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText == title) {
-            alert('This item is already added to the cart')
+            alert('Already in the cart')
             return
         }
     }
@@ -141,8 +142,7 @@ function updateCartTotal() {
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         var quantity = quantityElement.value
-        total = total + (price * quantity)
+        total = total + (price * quantity) 
     }
-    // total = Math.round(total * 100);
-    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+    document.getElementsByClassName('cart-total-price')[0].innerText = 'Rs.' + total
 }

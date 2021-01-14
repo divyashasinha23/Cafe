@@ -52,7 +52,7 @@ app.get('/profile', requireAuth, (req,res) => {
 //     res.render('cart');
 // })
 app.post('/orderconfirm', function(req,res){
-    fs.readFile('menu.json',function(arror,data){
+    fs.readFile('menu.json',function(error,data){
         if(error)
         {
             res.status(500).end();
@@ -65,7 +65,7 @@ app.post('/orderconfirm', function(req,res){
                 const menuJson=menuArray.find(function(i){
                     return i.id==menu.id
                 })
-                total=total + menuJson.price *menu.quantity
+                total= total + menuJson.price * menu.quantity
             })
             stripe.charges.create({
                 amount:total,
