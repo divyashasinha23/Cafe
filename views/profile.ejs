@@ -3,7 +3,15 @@
 <h1 class="profile_success"> Registration Successfull</h1>
 
 <div class = "profile">
-    <img class="image" src="images/my image.jpg" alt=""/>
+    <!-- <img class="image" src="images/my image.jpg" alt=""/> -->
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <div> 
+           <label>Select your profile picture:</label> <input type="file"   name="image" />
+        </div>
+        <div> 
+            <input type="submit" name="btn_upload_profile_pic" value="Upload" /> 
+        </div>
+        </form>
     <h2 class= "name"><%= employe.full_name %></h2>
     <div class = "wrapper">
     <p class=" organisation"><span>Organisation:</span> <%= employe.organisation_name %></p>
