@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const Employe = require('../models/Employe');
+const multer = require('multer');
 
 const requireAuth = (req,res,next) => {
     const token = req.cookies.jwt;
@@ -43,4 +44,17 @@ const currentUser = (req,res,next) => {
     }
 }
 
-module.exports = {requireAuth, currentUser};
+var Storage= multer.diskStorage({
+    destination:"./public/uploads/",
+    filename:(req,file,cb)=>{
+      cb(null,file.fieldname+"_"+Date.now()+path.extname(file.originalname));
+    }
+  });
+  
+  var upload = multer({
+    storage:Storage
+  }).single('file');
+
+  module.exports = upload;
+
+module.exports = {requireAuth, currentUser,upload};
