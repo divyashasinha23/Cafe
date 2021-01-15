@@ -4,6 +4,7 @@ const authcontroller = require('../Controller/authcontroller');
 const { requireAuth, currentUser, currentOrder } = require("../Middleware/authmiddleware");
 const upload = require('../Middleware/authmiddleware');
 
+
 router.get('/signup',authcontroller.signup_get);
 router.post('/signup',upload, authcontroller.signup_post);
 router.get('/login',authcontroller.login_get);

@@ -73,8 +73,7 @@ module.exports.signup_post = async(req,res) => {
                 mobile_no:employe.mobile_no,
                 password:employe,password,
                 employe_id: employe.employe_id,
-                email:employe.email,
-                img:employe.file.filename
+                email:employe.email
             });  
         }
         
