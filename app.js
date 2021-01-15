@@ -48,6 +48,9 @@ app.get('/', (req,res) =>{
 app.get('/profile', requireAuth, (req,res) => {
     res.render('profile');
 })
+app.get('/upload', requireAuth, (req,res) => {
+    res.render('image');
+})
 // app.get('/orderconfirm',requireAuth, (req,res) => {
 //     res.render('cart');
 // })
@@ -91,6 +94,36 @@ app.post('/orderconfirm', function(req,res){
 //     }
 // });
 // var upload = multer({storage: storage});
+
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads');
+    },
+    filename: (req, file, cb) => {
+        console.log(file);
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png') {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+}
+const upload = multer({ storage: storage, fileFilter: fileFilter });
+
+//Upload route
+app.post('/upload', upload.single('image'), (req, res, next) => {
+    try {
+          res.render('image');
+        }
+     catch (error) {
+        console.error(error);
+    }
+});
 
 app.use(authRoute);
 
