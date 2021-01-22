@@ -17,8 +17,7 @@
     "multer": "^1.4.2",
     "path": "^0.12.7",
     "stripe": "^8.130.0",
-    "validator": "^13.5.2",
-     "start": "node app.js"
+    "validator": "^13.5.2"
   },
   "devDependencies": {},
   "scripts": {
