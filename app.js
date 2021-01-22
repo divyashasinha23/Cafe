@@ -180,4 +180,7 @@ app.use(authRoute);
 
 PORT = process.env.PORT;
 
-app.listen(PORT, ()=> console.log(`Server started at port ${PORT}`))
+//app.listen(PORT, ()=> console.log(`Server started at port ${PORT}`))
+app.listen(Port, function() {
+    console.log(`Our app is running on http://localhost:  ${PORT}`);
+});
