@@ -4,7 +4,8 @@
   "description": "to run this sample locally:\r ### How to run locally\r - git clone https://github.com/jhaji12/Cafe.git\r - Do `npm init` to install node modules\r - Install all dependencies present in `package.json`\r - Check `.gitignore` for hidden folders\r - Do `nodemon app.js` in the root folder",
   "main": "app.js",
   "engines": {
-    "node": "13.14.0"
+    "node": "13.14.0",
+    "npm": "6.14.4"
    
   },
   "dependencies": {
